@@ -11,7 +11,14 @@ class User extends Authenticatable
     use Notifiable;
 
     public function roles(){
-        return $this->belongsToMany('App\role');
+        return $this->belongsToMany('App\Role');
+    }
+    public function hasRole($role){
+        if($this->roles()->where('name',$role)->first())
+        {
+            return true;
+        }
+        return false;
     }
     /**
      * The attributes that are mass assignable.
