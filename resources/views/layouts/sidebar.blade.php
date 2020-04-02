@@ -19,7 +19,7 @@
                                     <a href="index2.html">Dashboard 2</a>
                                 </li>
                                 <li>
-                                    <a href="index3.html">Dashboard 3</a>
+                                    <a href="{{route('userview')}}">Dashboard 3</a>
                                 </li>
                                 <li>
                                     <a href="index4.html">Dashboard 4</a>

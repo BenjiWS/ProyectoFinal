@@ -24,6 +24,8 @@ Route::get('/forget-pass', function () {
     return view('/login/forget-pass');
 })->name('forget');*/
 
+
+Route::get('/user', 'UserController@index')->name('userview');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
