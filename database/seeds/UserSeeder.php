@@ -4,7 +4,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
-
+use App\User;
+use App\Role;
 class UserSeeder extends Seeder
 {
     /**
@@ -14,7 +15,36 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        $role_user =Role::where('name','User')->first();
+        $role_admin =Role::where('name','Admin')->first();
+        $user=new User();
+        $user->ci = "67890";
+        $user->name ='Benjamin';
+        $user->lastname = 'Rosales';
+        $user->email = 'benjaminrosales@hotmail.com';
+        $user->phone = 71703119;
+        $user->address = 'Final Beijing';
+        $user->username='benja123';
+        $user->password =Hash::make('6489624rp');
+        $user->state=true;
+        $user->save();
+        $user->roles()->attach($role_admin);
+
+        $user=new User();
+        $user->ci = "67890";
+        $user->name ='Pedro';
+        $user->lastname = 'Perez';
+        $user->email = 'Pedroperez@hotmail.com';
+        $user->phone = 71703119;
+        $user->address = 'Final Beijing 18';
+        $user->username='pedro123';
+        $user->password =Hash::make('6489624rp');
+        $user->state=true;
+        $user->save();
+        $user->roles()->attach($role_user);
+
+
+       /* DB::table('users')->insert([
             'ci' => '67890',
             'name' => 'Pedro',
             'lastname' => 'Gonzales',
@@ -24,6 +54,6 @@ class UserSeeder extends Seeder
             'username'=>'pedro123',
             'password' =>Hash::make('6489624rp'),
             'state'=>true    
-        ]);
+        ]);*/
     }
 }
