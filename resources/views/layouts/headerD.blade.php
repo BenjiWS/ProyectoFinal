@@ -28,7 +28,6 @@
                                                         <a href="#">  {{ Auth::user()->name }} {{Auth::user()->lastname}}</a>
                                                     </h5>
                                                     <span class="email"> {{ Auth::user()->email }}</span>
-                                                    <span class="email"> {{ auth()->user()->roles }}</span>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">  
