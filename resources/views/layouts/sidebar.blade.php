@@ -18,9 +18,11 @@
                                 <li>
                                     <a href="index2.html">Dashboard 2</a>
                                 </li>
+                                @if($rol== "Admin")
                                 <li>
                                     <a href="{{route('userview')}}">Dashboard 3</a>
                                 </li>
+                                @endif
                                 <li>
                                     <a href="index4.html">Dashboard 4</a>
                                 </li>

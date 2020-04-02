@@ -16,23 +16,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('auth.login');
 });
-/*
-Route::get('/login', function () {
-    return view('/login/login');
-});
-Route::get('/forget-pass', function () {
-    return view('/login/forget-pass');
-})->name('forget');*/
-
 
 //Route::get('/user', 'UserController@index')->name('userview');
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
 	//Roles
 	Route::get('/user', 'UserController@index')->name('userview')
-		->middleware('role:Admin');
+        ->middleware('role:Admin');   
 });
 

@@ -23,6 +23,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $roles = auth()->user()->roles;
+        $array = json_decode($roles);
+        $rol = $array[0]->name;
+        return view('home',compact("rol"));
     }
+    
 }
