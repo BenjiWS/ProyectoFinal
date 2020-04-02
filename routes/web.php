@@ -25,8 +25,14 @@ Route::get('/forget-pass', function () {
 })->name('forget');*/
 
 
-Route::get('/user', 'UserController@index')->name('userview');
+//Route::get('/user', 'UserController@index')->name('userview');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::middleware(['auth'])->group(function () {
+	//Roles
+	Route::get('/user', 'UserController@index')->name('userview')
+		->middleware('role:Admin');
+});
 
