@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>HOME</title>
+    <title>Home</title>
 
     <!-- Fontfaces CSS-->
     <link href="assets/cool/css/font-face.css" rel="stylesheet" media="all">
@@ -52,7 +52,12 @@
         <!-- HEADER DESKTOP-->
         @include("layouts/headerD");
         <!-- END HEADER DESKTOP-->
-             <div class="main-content">
+             <div class="main-content" style="padding-top:100px !important">
+                <div class="section__content section__content--p30">
+                    <div class="container-fluid">
+                             @yield('seccion')
+                    </div>
+                </div>
              </div>
         </div>
         <!-- END PAGE CONTAINER-->

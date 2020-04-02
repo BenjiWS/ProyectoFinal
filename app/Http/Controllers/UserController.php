@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use Illuminate\Support\Facades\DB;
+use App\User;
 class UserController extends Controller
 {
     /**
@@ -12,8 +13,9 @@ class UserController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
-        return view('user.user');
+    {  
+        $users = DB::table('users')->select('id', 'ci', 'name', 'lastname','email','phone','address','state')->get();
+        return view('user.user',compact('users'));
     }
 
     /**
@@ -23,7 +25,16 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+       /* $newEstudent = new User();
+        $newEstudent->ci = $request->ci;
+        $newEstudent->name = $request->name;
+        $newEstudent->lastname = $request->lastname;
+        $newEstudent->email = $request->email;
+        $newEstudent->save();
+        //refrescar semillas siempre
+        //return response()->json(['success' => 'Se registro correctamente']);
+*/
+        return back();
     }
 
     /**

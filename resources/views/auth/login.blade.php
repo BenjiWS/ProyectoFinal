@@ -1,124 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
-
-    <!-- Title Page-->
-    <title>Login</title>
-
-    <!-- Fontfaces CSS-->
-    <link href="assets/cool/css/font-face.css" rel="stylesheet" media="all">
-    <link href="assets/cool/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="assets/cool/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="assets/cool/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-
-    <!-- Bootstrap CSS-->
-    <link href="assets/cool/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
-
-    <!-- Vendor CSS-->
-    <link href="assets/cool/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="assets/cool/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="assets/cool/wow/animate.css" rel="stylesheet" media="all">
-    <link href="assets/cool/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="assets/cool/slick/slick.css" rel="stylesheet" media="all">
-    <link href="assets/cool/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="assets/cool/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="assets/cool/css/theme.css" rel="stylesheet" media="all">
-
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="assets/cool/login_css/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/css/util.css">
+	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/css/main.css">
+<!--===============================================================================================-->
 </head>
-<body class="animsition">
-    <div class="page-wrapper">
-        <div class="page-content--bge5">
-            <div class="container">
-                <div class="login-wrap">
-                    <div class="login-content">
-                        <div class="login-logo">
-                            <a href="#">
-                                <img src="assets/cool/images/icon/logo.png" alt="CoolAdmin">
-                            </a>
-                        </div> 
-                        <div class="login-form">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-    
+<body>
+	
+		
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url('assets/cool/login_css/images/bg-01.jpg');">
+			<div class="wrap-login100">
+                <form class="login100-form validate-form"  method="POST" action="{{ route('login') }}"">
+                    @csrf
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Log in
+					</span>
                             <div class="form-group">
-                                <label for="username">Username</label>
-                                    <input id="username" placeholder="Username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" required  autofocus>
+                                <div class="wrap-input100 validate-input" data-validate="Enter username">
+                                    <input class="input100" id="username" placeholder="Username" type="username" class="form-control @error('username') is-invalid @enderror" name="username" value="{{ old('username') }}" autocomplete="off">                            
+                                    <span class="focus-input100" data-placeholder="&#xf207;"></span>
                                     @error('username')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                           
+                                </div>
                             </div>
                             <div class="form-group">
-                                   <label>Password</label>
-                                    <input class="au-input au-input--full"   placeholder="Password" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                <div class="wrap-input100 validate-input" data-validate="Enter password">
+                                    <input class="input100"  placeholder="Password" id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" autocomplete="current-password">                                   
+                                    <span class="focus-input100" data-placeholder="&#xf191;"></span> 
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
                                         </span>
                                     @enderror
-                            </div>
-                            <div class="login-checkbox">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}>
-                                    <label class="form-check-label" for="remember">
-                                      {{ __('Remember Me') }}
-                                    </label>
                                 </div>
-                                <label style="text-align:right">
-                                    @if (Route::has('password.request'))
-                                    <a  href="{{ route('password.request') }}">
-                                        {{ __('Forgot Your Password?') }}
-                                    </a>
-                                    @endif
-                                   </label>
-                                
                             </div>
-                                    <button type="submit" class="au-btn au-btn--block au-btn--green m-b-20" type="submit" style="
-                                    text-align: center;"> {{ __('Login') }}</button>
-                          </form>    
-                        </div>                                       
-                        </div>
+                            <div class="contact100-form-checkbox">
+                                <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
+                                <label class="label-checkbox100" for="ckb1">
+                                    Remember me
+                                </label>
+                            </div>
+        
+                            <div class="container-login100-form-btn">
+                                <button type="submit" class="login100-form-btn" type="submit" style="
+                                text-align: center;"> {{ __('Login') }}</button>
+                            </div>
+        
+                            <div class="text-center p-t-50">
+                                <a class="txt1" href="#">
+                                    Forgot Password?
+                                </a>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
-    
-        </div>
-    <!-- Jquery JS-->
-    <script src="assets/cool/jquery-3.2.1.min.js"></script>
-    <!-- Bootstrap JS-->
-    <script src="assets/cool/bootstrap-4.1/popper.min.js"></script>
-    <script src="assets/cool/bootstrap-4.1/bootstrap.min.js"></script>
-    <!-- Vendor JS       -->
-    <script src="assets/cool/slick/slick.min.js">
-    </script>
-    <script src="assets/cool/wow/wow.min.js"></script>
-    <script src="assets/cool/animsition/animsition.min.js"></script>
-    <script src="assets/cool/bootstrap-progressbar/bootstrap-progressbar.min.js">
-    </script>
-    <script src="assets/cool/counter-up/jquery.waypoints.min.js"></script>
-    <script src="assets/cool/counter-up/jquery.counterup.min.js">
-    </script>
-    <script src="assets/cool/circle-progress/circle-progress.min.js"></script>
-    <script src="assets/cool/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="assets/cool/chartjs/Chart.bundle.min.js"></script>
-    <script src="assets/cool/select2/select2.min.js">
-    </script>
 
-    <!-- Main JS-->
-    <script src="assets/cool/js/main.js"></script>
+	<div id="dropDownSelect1"></div>
+	
+<!--===============================================================================================-->
+	<script src="assets/cool/login_css/vendor/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/cool/login_css/vendor/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/cool/login_css/vendor/bootstrap/js/popper.js"></script>
+	<script src="assets/cool/login_css/vendor/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/cool/login_css/vendor/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/cool/login_css/vendor/daterangepicker/moment.min.js"></script>
+	<script src="assets/cool/login_css/vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/cool/login_css/vendor/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="assets/cool/login_css/js/main.js"></script>
 
 </body>
-
 </html>
-<!-- end document-->

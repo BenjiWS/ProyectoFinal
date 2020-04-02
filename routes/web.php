@@ -23,7 +23,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
 	//Roles
-	Route::get('/user', 'UserController@index')->name('userview')
+	Route::get('/ViewUser', 'UserController@index')->name('view_user')
         ->middleware('role:Admin');   
+    Route::get('/ViewCreateUser', function () {return view('user.register');
+        })->name('view_create_user')->middleware('role:Admin');      
+    Route::post('/CreateUser','UserController@create')-> name('create_user')
+        ->middleware('role:Admin');
 });
 
