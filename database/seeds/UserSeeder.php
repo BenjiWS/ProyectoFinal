@@ -23,8 +23,7 @@ class UserSeeder extends Seeder
             'address' => 'Final Beijing',
             'username'=>'pedro123',
             'password' =>Hash::make('6489624rp'),
-            'state'=>true,  
-            'idRol'=>1      
+            'state'=>true    
         ]);
     }
 }
