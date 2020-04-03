@@ -1,6 +1,6 @@
 @extends('home')
 @section('seccion')
-<link href="assets/cool/css/style_user.css" rel="stylesheet" media="all">
+<link href="{{asset("assets/limitless/style_user.css")}}" rel="stylesheet" media="all">
 <form method="POST" action="{{ route('create_user') }}" >
     @csrf
 <div class="container register card">
