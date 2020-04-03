@@ -1,5 +1,6 @@
 <?php
 
+use App\Role;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->group(function () {
-	//Roles
+	//Usuarios
 	Route::get('/ViewUser', 'UserController@index')->name('view_user')
         ->middleware('role:Admin');   
     Route::get('/ViewCreateUser', function () {return view('user.register');
@@ -34,16 +35,23 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/Actualizar/{id}','UserController@update')->name('actualizar')
         ->middleware('role:Admin'); 
 
+    //Roles
     Route::get('/ViewRole', 'RoleController@index')->name('view_role')
         ->middleware('role:Admin');  
-        Route::get('/ViewCreateRole', function () {return view('role.register');
+    Route::get('/ViewCreateRole', function () {return view('role.register');
         })->name('view_create_role')->middleware('role:Admin');      
-    Route::post('/CreateUser','RoleController@create')-> name('create_role')
-        ->middleware('role:Admin');
-    Route::get('/ActualizarRole/{id}','RoleController@edit')->name('view_actualizar_role')
-        ->middleware('role:Admin'); 
-    Route::post('/ActualizarRole/{id}','RoleController@update')->name('actualizar_role')
-        ->middleware('role:Admin');    
+    Route::post('/CreateRol','RoleController@create')-> name('create_role')
+        ->middleware('role:Admin');  
+
+    //Rooms
+   /* Route::get('/ViewRoom', 'RoomController@index')->name('view_room')
+    ->middleware('role:Admin');*/
+    Route::resource('rooms','RoomController');
+
+   /* Route::get('/ViewCreateRoom', function () {return view('rooms.registerRoom');
+    })->name('view_create_room')->middleware('role:Admin'); 
+    Route::post('/CreateUser','UserController@create')-> name('create_user')
+        ->middleware('role:Admin');*/
 });    
 
 

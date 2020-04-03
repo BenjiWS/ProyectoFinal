@@ -14,7 +14,7 @@ $rol = $array[0]->name;
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         @if($rol == "Admin")
-                        <li class="active has-sub">
+                        <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-users"></i>Users</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
@@ -30,9 +30,17 @@ $rol = $array[0]->name;
                             <a href="{{route('view_role')}}">
                                 <i class="fas fa-user"></i>Roles</a>
                         </li>
-                        <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Rooms</a>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-users"></i>Rooms</a>
+                            <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
+                                <li>
+                                    <a href="{{route('view_room')}}">Room Table</a>
+                                </li>
+                                <li>
+                                    <a href="{{route ('view_create_room')}}">Register Room</a>
+                                </li>
+                            </ul>
                         </li>
                         <li>
                             <a href="table.html">

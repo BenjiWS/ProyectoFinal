@@ -31,7 +31,7 @@
     <link href="{{asset("assets/cool/perfect-scrollbar/perfect-scrollbar.css")}}" rel="stylesheet" media="all">
     <!-- Main CSS-->
     <link href="{{asset("assets/cool/css/theme.css")}}" rel="stylesheet" media="all">
-
+    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
     <!--SweetAlert-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
@@ -84,8 +84,7 @@
   </script>
   <script src="{{asset("assets/cool/circle-progress/circle-progress.min.js")}}"></script>
   <script src="{{asset("assets/cool/perfect-scrollbar/perfect-scrollbar.js")}}"></script>
-  </script>
-
+  <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <!-- Main JS-->
   <script src="{{asset("assets/cool/js/main.js")}}"></script>
 

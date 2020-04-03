@@ -3,9 +3,11 @@
 <div class="row">
     <div class="col-md-12">
         <!-- DATA TABLE -->
-        <h3 class="title-5 m-b-35">User Table</h3>
         <div class="table-data__tool">
-            <div class="table-data__tool-center">
+            <div class="table-data__tool-left">   
+                <h3 class="title-5 m-b-35">User Table</h3>
+            </div>
+            <div class="table-data__tool-right">
                 <a href="{{route ('view_create_user')}}" style="color:white" class="au-btn au-btn-icon au-btn--green au-btn--small">
                     <i class="zmdi zmdi-plus"></i>Add User</a>
             </div>

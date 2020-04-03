@@ -2,12 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Room;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use App\Role;
 
-class RoleController extends Controller
+class RoomController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +13,11 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {
-        $roles = DB::table('roles')->select('id','name','state')->get();
-        return view('role.roles',compact('roles'));
+    {           
+        $rooms = Room::latest()->paginate(5);
+  
+        return view('rooms.index',compact('rooms'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
     }
 
     /**
@@ -27,7 +27,7 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        return view('rooms.create');
     }
 
     /**
@@ -38,7 +38,15 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+  
+        Room::create($request->all());
+   
+        return redirect()->route('rooms.index')
+                        ->with('success','Blog created successfully.');
     }
 
     /**
@@ -49,7 +57,7 @@ class RoleController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('rooms.show',compact('id'));
     }
 
     /**
@@ -60,7 +68,7 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('rooms.edit',compact('blog'));
     }
 
     /**
@@ -72,7 +80,15 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'title' => 'required',
+            'description' => 'required',
+        ]);
+  
+        $id->update($request->all());
+  
+        return redirect()->route('rooms.index')
+                        ->with('success','Blog updated successfully');
     }
 
     /**
@@ -83,6 +99,9 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $id->delete();
+  
+        return redirect()->route('rooms.index')
+                        ->with('success','Blogs deleted successfully');
     }
 }
