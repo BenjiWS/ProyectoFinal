@@ -1,92 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="au theme template">
-    <meta name="author" content="Hau Nguyen">
-    <meta name="keywords" content="au theme template">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Limitless - Responsive Web Application Kit by Eugene Kopyov</title>
+	<!-- Global stylesheets -->
+	<link href="https://fonts.googleapis.com/css?family=Roboto:400,300,100,500,700,900" rel="stylesheet" type="text/css">
+	<link href="{{asset("assets/limitless/global_assets/css/icons/icomoon/styles.css")}}" rel="stylesheet" type="text/css">
+	<link href="{{asset("assets/limitless/asset/css/bootstrap.min.css")}}" rel="stylesheet" type="text/css">
+	<link href="{{asset("assets/limitless/asset/css/bootstrap_limitless.min.css")}}" rel="stylesheet" type="text/css">
+	<link href="{{asset("assets/limitless/asset/css/layout.min.css")}}" rel="stylesheet" type="text/css">
+	<link href="{{asset("assets/limitless/asset/css/components.min.css")}}" rel="stylesheet" type="text/css">
+	<link href="{{asset("assets/limitless/asset/css/colors.min.css")}}" rel="stylesheet" type="text/css">
+	<!-- /global stylesheets -->
 
-    <!-- Title Page-->
-    <title>Home</title>
+	<!-- Core JS files -->
+	<script src="{{asset("assets/limitless/global_assets/js/main/jquery.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/main/bootstrap.bundle.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/loaders/blockui.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/ui/ripple.min.js")}}"></script>
+	<!-- /core JS files -->
 
-    <!-- Fontfaces CSS-->
-    <link href="{{asset("assets/cool/css/font-face.css")}}" rel="stylesheet" media="all">
-    <link href="{{asset("assets/cool/font-awesome-4.7/css/font-awesome.min.css")}}" rel="stylesheet" media="all">
-    <link href="{{asset("assets/cool/font-awesome-5/css/fontawesome-all.min.css")}}" rel="stylesheet" media="all">
-    <link href="{{asset("assets/cool/mdi-font/css/material-design-iconic-font.min.css")}}" rel="stylesheet" media="all">
+	<!-- Theme JS files -->
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/visualization/d3/d3.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/visualization/d3/d3_tooltip.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/styling/switchery.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/selects/bootstrap_multiselect.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/ui/moment/moment.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/pickers/daterangepicker.js")}}"></script>
 
-    <!-- Bootstrap CSS-->
-    <link href="{{asset("assets/cool/bootstrap-4.1/bootstrap.min.css")}}" rel="stylesheet" media="all">
-
-    <!-- Vendor CSS-->
-    <link href="{{asset("assets/cool/animsition/animsition.min.css")}}" rel="stylesheet" media="all">
-    <link href="{{asset("assets/cool/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css")}}" rel="stylesheet" media="all">
-    <link href="{{asset("assets/cool/wow/animate.css")}}" rel="stylesheet" media="all">
-    <link href="{{asset("assets/cool/css-hamburgers/hamburgers.min.css")}}" rel="stylesheet" media="all">
-    <link href="{{asset("assets/cool/slick/slick.css")}}" rel="stylesheet" media="all">
-    <link href="{{asset("assets/cool/select2/select2.min.css")}}" rel="stylesheet" media="all">
-    <link href="{{asset("assets/cool/perfect-scrollbar/perfect-scrollbar.css")}}" rel="stylesheet" media="all">
-    <!-- Main CSS-->
-    <link href="{{asset("assets/cool/css/theme.css")}}" rel="stylesheet" media="all">
-    <link rel="stylesheet" href="//cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
-    <!--SweetAlert-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css">
+	<script src="{{asset("assets/limitless/asset/js/app.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/demo_pages/dashboard.js")}}"></script>
+	<!-- /theme JS files -->
+    
 
 </head>
-<body class="animsition">
-    <div class="page-wrapper">
-        <!-- HEADER MOBILE-->
-        @include("layouts/header")
-        <!-- END HEADER MOBILE-->
+<body>
 
-        <!-- MENU SIDEBAR-->
-        @include("layouts/sidebar")
-        <!-- END MENU SIDEBAR-->
+	<!-- Main navbar -->
+	@include('layouts.navbar')
+	<!-- /main navbar -->
 
-       
 
-        <!-- PAGE CONTAINER-->
-        <div class="page-container">
+	<!-- Page header -->
+	@include('layouts.header')
+	<!-- /page header -->
+		
 
-        <!-- HEADER DESKTOP-->
-        @include("layouts/headerD");
-        <!-- END HEADER DESKTOP-->
-             <div class="main-content" style="padding-top:70px !important">
-                <div class="section__content section__content--p30">
-                    <div class="container-fluid">
-                             @yield('seccion')
-                    </div>
-                </div>
-             </div>
-        </div>
-        <!-- END PAGE CONTAINER-->
-    </div>
-  <!-- Jquery JS-->
-  <script src="{{asset("assets/cool/jquery-3.2.1.min.js")}}"></script>
-  <!-- Bootstrap JS-->
-  <script src="{{asset("assets/cool/bootstrap-4.1/popper.min.js")}}"></script>
-  <script src="{{asset("assets/cool/bootstrap-4.1/bootstrap.min.js")}}"></script>
-  <!-- Vendor JS       -->
-  <script src="{{asset("assets/cool/slick/slick.min.js")}}">
-  </script>
-  <script src="{{asset("assets/cool/wow/wow.min.js")}}"></script>
-  <script src="{{asset("assets/cool/animsition/animsition.min.js")}}"></script>
-  <script src="{{asset("assets/cool/bootstrap-progressbar/bootstrap-progressbar.min.js")}}">
-  </script>
-  <script src="{{asset("assets/cool/counter-up/jquery.waypoints.min.js")}}"></script>
-  <script src="{{asset("assets/cool/counter-up/jquery.counterup.min.js")}}">
-  </script>
-  <script src="{{asset("assets/cool/circle-progress/circle-progress.min.js")}}"></script>
-  <script src="{{asset("assets/cool/perfect-scrollbar/perfect-scrollbar.js")}}"></script>
-  <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-  <!-- Main JS-->
-  <script src="{{asset("assets/cool/js/main.js")}}"></script>
+	<!-- Page content -->
+	<div class="page-content pt-0">
 
+		<!-- Main sidebar -->
+		@include('layouts.sidebar')
+		<!-- /main sidebar -->
+
+
+		<!-- Main content -->
+		<div class="content-wrapper">
+
+			<!-- Content area -->
+			<div class="content">
+
+				<!-- Main charts -->
+				<div class="row">
+					<div class="col-xl-7">
+						 @yield('seccion')
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /main content -->
+
+	</div>
+	<!-- /page content -->
+		
 </body>
 </html>
