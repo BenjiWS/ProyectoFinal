@@ -11,7 +11,7 @@
         </div>
     </div>
     <div class="text-center">
-        <a href="{{route ('view_create_room')}}" class="btn btn-primary rounded-round">AGREGAR USER</a>
+        <a href="{{route ('view_create_room')}}" class="btn btn-primary rounded-round">AGREGAR ROOM</a>
        </div>
           <table class="table datatable-basic">
                 <thead>
