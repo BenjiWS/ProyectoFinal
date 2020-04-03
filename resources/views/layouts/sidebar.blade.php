@@ -14,7 +14,7 @@ $rol = $array[0]->name;
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         @if($rol == "Admin")
-                        <li class="has-sub">
+                        <li class="active has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-user"></i>Users</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
