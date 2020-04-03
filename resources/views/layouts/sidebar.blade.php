@@ -91,8 +91,8 @@ $rol = $array[0]->name;
                         <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Room</span></a>
 
                         <ul class="nav nav-group-sub" data-submenu-title="Starter kit">
-                            <li class="nav-item"><a href="../seed/layout_nav_horizontal.html" class="nav-link">Table Room</a></li>
-                            <li class="nav-item"><a href="../seed/sidebar_none.html" class="nav-link">Register Room</a></li>
+                            <li class="nav-item"><a href="{{route('view_room')}}"  class="nav-link">Table Room</a></li>
+                            <li class="nav-item"><a href="{{route('create_room')}}"  class="nav-link">Register Room</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a href="" class="nav-link"><i class="icon-width"></i><span>Services</span></a></li>

@@ -37,7 +37,8 @@ class UserController extends Controller
         $newUser->password = Hash::make($request->password);
         $newUser->state = true;
         $newUser->save();
-        return response()->json(['success'=>'Product deleted successfully.']);
+        $users = DB::table('users')->select('id', 'ci', 'name', 'lastname','email','phone','state')->get();
+        return view('user.user',compact('users'));
     }
 
     /**
@@ -93,8 +94,8 @@ class UserController extends Controller
         $newUser->username = $request->username;
         $newUser->password = Hash::make($request->password);
         $newUser->state = true;
-        $newUser->save();
-        return response()->json(['success'=>'Product deleted successfully.']);
+        $users = DB::table('users')->select('id', 'ci', 'name', 'lastname','email','phone','state')->get();
+        return view('user.user',compact('users'));
     }
 
     /**

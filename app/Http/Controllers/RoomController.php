@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Room;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class RoomController extends Controller
 {
@@ -14,10 +16,8 @@ class RoomController extends Controller
      */
     public function index(Request $request)
     {           
-        $rooms = Room::latest()->paginate(5);
-  
-        return view('rooms.index',compact('rooms'))
-            ->with('i', (request()->input('page', 1) - 1) * 5);
+        $rooms = DB::table('rooms')->select('number','name','price','type','numberBeds','numberBathroom','numberTV','cradle','state')->get();
+        return view('room.room',compact('rooms'));
     }
 
     /**
@@ -27,7 +27,7 @@ class RoomController extends Controller
      */
     public function create()
     {
-        return view('rooms.create');
+    
     }
 
     /**
@@ -38,15 +38,7 @@ class RoomController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-        ]);
-  
-        Room::create($request->all());
-   
-        return redirect()->route('rooms.index')
-                        ->with('success','Blog created successfully.');
+        
     }
 
     /**
@@ -57,7 +49,7 @@ class RoomController extends Controller
      */
     public function show($id)
     {
-        return view('rooms.show',compact('id'));
+       
     }
 
     /**
@@ -68,7 +60,7 @@ class RoomController extends Controller
      */
     public function edit($id)
     {
-        return view('rooms.edit',compact('blog'));
+      
     }
 
     /**
@@ -80,15 +72,7 @@ class RoomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'description' => 'required',
-        ]);
-  
-        $id->update($request->all());
-  
-        return redirect()->route('rooms.index')
-                        ->with('success','Blog updated successfully');
+        
     }
 
     /**
@@ -99,9 +83,6 @@ class RoomController extends Controller
      */
     public function destroy($id)
     {
-        $id->delete();
-  
-        return redirect()->route('rooms.index')
-                        ->with('success','Blogs deleted successfully');
+       
     }
 }

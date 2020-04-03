@@ -25,9 +25,14 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        //
+        $newRol = new Role();
+        $newRol->name = $request->name;
+        $newRol->state = true;
+        $newRol->save();
+        $roles = DB::table('roles')->select('id','name','state')->get();
+        return view('role.roles',compact('roles'));
     }
 
     /**

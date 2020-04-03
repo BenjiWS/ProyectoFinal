@@ -43,14 +43,12 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('role:Admin');  
 
     //Rooms
-   /* Route::get('/ViewRoom', 'RoomController@index')->name('view_room')
-    ->middleware('role:Admin');*/
-    Route::resource('rooms','RoomController');
-
-   /* Route::get('/ViewCreateRoom', function () {return view('rooms.registerRoom');
+    Route::get('/ViewRoom', 'RoomController@index')->name('view_room')
+    ->middleware('role:Admin');
+    Route::get('/ViewCreateRoom', function () {return view('room.register');
     })->name('view_create_room')->middleware('role:Admin'); 
-    Route::post('/CreateUser','UserController@create')-> name('create_user')
-        ->middleware('role:Admin');*/
+    Route::post('/CreateRoom','RoomController@create')-> name('create_room')
+        ->middleware('role:Admin');
 });    
 
 
