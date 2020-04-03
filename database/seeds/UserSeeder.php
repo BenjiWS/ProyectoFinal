@@ -22,7 +22,7 @@ class UserSeeder extends Seeder
         $user->name ='Benjamin';
         $user->lastname = 'Rosales';
         $user->email = 'benjaminrosales@hotmail.com';
-        $user->phone = 71703119;
+        $user->phone = 7170311923;
         $user->address = 'Final Beijing';
         $user->username='benja123';
         $user->password =Hash::make('6489624rp');
@@ -35,7 +35,7 @@ class UserSeeder extends Seeder
         $user->name ='Pedro';
         $user->lastname = 'Perez';
         $user->email = 'Pedroperez@hotmail.com';
-        $user->phone = 71703119;
+        $user->phone = 6478962454;
         $user->address = 'Final Beijing 18';
         $user->username='pedro123';
         $user->password =Hash::make('6489624rp');

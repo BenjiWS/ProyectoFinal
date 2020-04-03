@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use App\User;
 class UserController extends Controller
 {
@@ -23,18 +24,20 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-       /* $newEstudent = new User();
-        $newEstudent->ci = $request->ci;
-        $newEstudent->name = $request->name;
-        $newEstudent->lastname = $request->lastname;
-        $newEstudent->email = $request->email;
-        $newEstudent->save();
-        //refrescar semillas siempre
-        //return response()->json(['success' => 'Se registro correctamente']);
-*/
-        return back();
+        $newUser = new User();
+        $newUser->ci = $request->ci;
+        $newUser->name = $request->name;
+        $newUser->lastname = $request->lastname;
+        $newUser->email = $request->email;
+        $newUser->phone = $request->phone;
+        $newUser->address = $request->address;
+        $newUser->username = $request->username;
+        $newUser->password = Hash::make($request->password);
+        $newUser->state = true;
+        $newUser->save();
+        return response()->json(['success'=>'Product deleted successfully.']);
     }
 
     /**

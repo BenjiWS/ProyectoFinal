@@ -19,7 +19,7 @@ class CreateClientesTable extends Migration
             $table->string('name');
             $table->string('lastname');
             $table->string('email')->unique();
-            $table->integer('phone');
+            $table->bigInteger('phone');
             $table->string('address');
             $table->integer("number_Card_Credit");
             $table->integer("number_CVV");

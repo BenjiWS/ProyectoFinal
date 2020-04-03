@@ -16,7 +16,7 @@ $rol = $array[0]->name;
                         @if($rol == "Admin")
                         <li class="active has-sub">
                             <a class="js-arrow" href="#">
-                                <i class="fas fa-user"></i>Users</a>
+                                <i class="fas fa-users"></i>Users</a>
                             <ul class="navbar-mobile-sub__list list-unstyled js-sub-list">
                                 <li>
                                     <a href="{{route('view_user')}}">User Table</a>

@@ -1,92 +1,50 @@
 @extends('home')
 @section('seccion')
-<div class="col-lg-7">
-    <div class="card">
-        <div class="card-header">Form</div>
-        <div class="card-body">
-            <div class="card-title">
-                <h3 class="text-center title-2">Register User</h3>
-            </div>
-            <hr>
-            <form action="" method="post" novalidate="novalidate">
-                <div class="form-group">
-                    <div class="col-7" style="padding-left:0px !important">
-                        <div class="input-group">
-                            <input type="text" id="ci" name="ci" placeholder="Ci" class="form-control" autocomplete="off">
-                           <div class="input-group-addon">
-                               <i class="far fa-address-card"></i>
+<link href="assets/cool/css/style_user.css" rel="stylesheet" media="all">
+<form method="POST" action="{{ route('create_user') }}" >
+    @csrf
+<div class="container register card">
+                    <h3  class="register-heading">Register User</h3>
+                    <div class="row register-form">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input type="text" name="ci"  id="ci" class="form-control validate" value="" placeholder="Ci *">
                             </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row" style="margin-bottom:16px !important">
-                        <div class="col-6">
-                            <div class="input-group">
-                                <input type="text" id="name" name="name" placeholder="Name" class="form-control" autocomplete="off">
-                               <div class="input-group-addon">
-                                <i class="far fa-user"></i>
-                                </div>
+                            <div class="form-group">
+                                <input type="text" id="name" name="name"  class="form-control validate" placeholder="First Name *" value="" />
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="input-group">
-                                <input type="text" id="lastname" name="lastname" placeholder="Lastname" class="form-control" autocomplete="off">
-                               <div class="input-group-addon">
-                                <i class="far fa-user"></i>
-                                </div>
+                            <div class="form-group">
+                                <input id="lastname" name="lastname" type="text" class="form-control validate" placeholder="Last Name *" value="" />
                             </div>
-                        </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-7" style="padding-left:0px !important">
-                        <div class="input-group">
-                            <input type="text" id="phone" name="phone" placeholder="Phone" class="form-control" autocomplete="off">
-                           <div class="input-group-addon">
-                               <i class="fas fa-mobile-alt"></i>
+                            <div class="form-group">
+                                <input id="email" name="email" type="email" class="form-control validate" placeholder="Email *" value="" />
                             </div>
+                
+
+
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <input id="phone" name="phone" type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input id="address" name="address"  type="text" class="form-control" placeholder="Address *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input id="username" name="username" type="text" maxlength="10" minlength="10" class="form-control" placeholder="User *" value="" />
+                            </div>
+                            <div class="form-group">
+                                <input id="password" name="password" type="password" class="form-control" placeholder="Password *" value="" />
+                            </div>
+                            <button type="submit" class="btnRegister" onclick="Evento()">Register</button>
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="email" id="email" name="email" placeholder="Email" class="form-control" autocomplete="off">
-                        <div class="input-group-addon">
-                            <i class="fa fa-envelope"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="text' id="address" name="address" placeholder="Address" class="form-control" autocomplete="off">
-                        <div class="input-group-addon">
-                            <i class="fas fa-location-arrow"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="text" id="username" name="username" placeholder="Username" class="form-control"autocomplete="off" >
-                        <div class="input-group-addon">
-                            <i class="fa fa-user"></i>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="input-group">
-                        <input type="password" id="password" name="password" placeholder="Password" class="form-control" autocomplete="off">
-                        <div class="input-group-addon">
-                            <i class="fa fa-asterisk"></i>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <button id="payment-button" type="submit" class="btn btn-lg btn-info btn-block">
-                        <span id="payment-button-amount">Register</span>
-                        <span id="payment-button-sending" style="display:none;">Sending…</span>
-                    </button>
-                </div>
-            </form>
-        </div>
-    </div>
-</div>
+             </div>
+             <script>
+                  function Evento() {
+                    Swal.fire('Good job!','You clicked the button!','success')
+                  }
+             </script>
+       </form>
+
 @endsection

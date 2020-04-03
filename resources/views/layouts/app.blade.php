@@ -29,9 +29,14 @@
     <link href="assets/cool/slick/slick.css" rel="stylesheet" media="all">
     <link href="assets/cool/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="assets/cool/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
-
     <!-- Main CSS-->
     <link href="assets/cool/css/theme.css" rel="stylesheet" media="all">
+
+    <!--SweetAlert-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/8.11.8/sweetalert2.min.css">
 
 </head>
 <body class="animsition">
@@ -52,7 +57,7 @@
         <!-- HEADER DESKTOP-->
         @include("layouts/headerD");
         <!-- END HEADER DESKTOP-->
-             <div class="main-content" style="padding-top:100px !important">
+             <div class="main-content" style="padding-top:70px !important">
                 <div class="section__content section__content--p30">
                     <div class="container-fluid">
                              @yield('seccion')
@@ -79,8 +84,6 @@
   </script>
   <script src="assets/cool/circle-progress/circle-progress.min.js"></script>
   <script src="assets/cool/perfect-scrollbar/perfect-scrollbar.js"></script>
-  <script src="assets/cool/chartjs/Chart.bundle.min.js"></script>
-  <script src="assets/cool/select2/select2.min.js">
   </script>
 
   <!-- Main JS-->
