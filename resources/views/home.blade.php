@@ -61,13 +61,7 @@
 
 			<!-- Content area -->
 			<div class="content">
-
-				<!-- Main charts -->
-				<div class="row">
-					<div class="col-xl-7">
 						 @yield('seccion')
-					</div>
-				</div>
 			</div>
 		</div>
 		<!-- /main content -->

@@ -1,34 +1,41 @@
 @extends('home')
 @section('seccion')
 @include('role.register')
-<div class="row">
-    <div class="col-md-12">
-        <div class="text-center">
-            <a href="" class="btn btn-default btn-rounded mb-4" data-toggle="modal" data-target="#modalContactForm">AGREGAR</a>
-           </div>
+           <!-- Basic datatable -->
+				<div class="card">
+					<div class="card-header header-elements-inline">
+						<h5 class="card-title">Table Roles</h5>
+						<div class="header-elements">
+							<div class="list-icons">
+		                		<a class="list-icons-item" data-action="collapse"></a>
+		                		<a class="list-icons-item" data-action="reload"></a>
+		                	</div>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <a href="" class="btn btn-primary rounded-round" data-toggle="modal" data-target="#modalContactForm">AGREGAR</a>
+                       </div>
+                    <table class="table datatable-basic">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>State</th>
+                                <th>Options</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach ($roles as $rol)
+                            <tr>
+                                <td>{{$rol -> id}}</td>
+                                <td>{{$rol -> name}} </td>
+                                <td>{{$rol -> state}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+				</div>
+				<!-- /basic datatable -->
         <!-- DATA TABLE -->
-        <div class="table-responsive table-responsive-data2">
-           <table id="example" class="display table table-data2" style="width:100%;border-bottom:0px">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Name</th>
-                        <th>State</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($roles as $rol)
-                    <tr>
-                        <td>{{$rol -> id}}</td>
-                        <td>{{$rol -> name}} </td>
-                        <td>{{$rol -> state}}</td>
-                    </tr>
-                    @endforeach
-                </tbody>
-            </table>
-        </div>
-    </div>  
-        <!-- END DATA TABLE -->
-</div>
+       
 @endsection

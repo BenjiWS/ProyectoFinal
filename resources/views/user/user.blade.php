@@ -1,19 +1,19 @@
 @extends('home')
 @section('seccion')
-<div class="row">
-    <div class="col-md-12">
-        <!-- DATA TABLE -->
-        <div class="table-data__tool">
-            <div class="table-data__tool-left">   
-                <h3 class="title-5 m-b-35">User Table</h3>
-            </div>
-            <div class="table-data__tool-right">
-                <a href="{{route ('view_create_user')}}" style="color:white" class="au-btn au-btn-icon au-btn--green au-btn--small">
-                    <i class="zmdi zmdi-plus"></i>Add User</a>
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Table Users</h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="collapse"></a>
+                <a class="list-icons-item" data-action="reload"></a>
             </div>
         </div>
-        <div class="table-responsive table-responsive-data2">
-            <table class="table table-data2">
+    </div>
+    <div class="text-center">
+        <a href="{{route ('view_create_user')}}" class="btn btn-primary rounded-round">AGREGAR USER</a>
+       </div>
+          <table class="table datatable-basic">
                 <thead>
                     <tr>
                         <th>id</th>
@@ -43,8 +43,5 @@
                     </tr>
                 </tbody>
             </table>
-        </div>
-        <!-- END DATA TABLE -->
-    </div>
 </div>
 @endsection

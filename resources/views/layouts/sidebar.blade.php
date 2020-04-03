@@ -21,7 +21,7 @@ $rol = $array[0]->name;
     <div class="sidebar-content">
         <!-- User menu -->
         <div class="sidebar-user-material">
-            <div class="sidebar-user-material-body card-img-top" style="background:url(assets/limitless/global_assets/images/backgrounds/user_bg4.jpg) center center no-repeat;background-size: cover;">
+            <div class="sidebar-user-material-body card-img-top">
                 <div class="card-body text-center">
                     <a href="#">
                         <img src="{{asset("assets/limitless/global_assets/images/placeholders/placeholder.jpg")}}" class="img-fluid rounded-circle shadow-2 mb-3" width="80" height="80" alt="">
@@ -84,7 +84,7 @@ $rol = $array[0]->name;
                             <li class="nav-item"> <a href="{{route ('view_create_user')}}" class="nav-link">Register User</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item nav-item-submenu">
+                    <li class="nav-item">
                         <a href="{{route('view_role')}}"class="nav-link"><i class="icon-color-sampler"></i> <span>Roles</span></a>
                     </li>
                     <li class="nav-item nav-item-submenu">
@@ -95,7 +95,7 @@ $rol = $array[0]->name;
                             <li class="nav-item"><a href="../seed/sidebar_none.html" class="nav-link">Register Room</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a href="../../../RTL/material/full/index.html" class="nav-link"><i class="icon-width"></i><span>Services</span></a></li>
+                    <li class="nav-item"><a href="" class="nav-link"><i class="icon-width"></i><span>Services</span></a></li>
                     <!-- /main -->
                         
                 </ul>
