@@ -33,6 +33,17 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('role:Admin'); 
     Route::post('/Actualizar/{id}','UserController@update')->name('actualizar')
         ->middleware('role:Admin'); 
+
+    Route::get('/ViewRole', 'RoleController@index')->name('view_role')
+        ->middleware('role:Admin');  
+        Route::get('/ViewCreateRole', function () {return view('role.register');
+        })->name('view_create_role')->middleware('role:Admin');      
+    Route::post('/CreateUser','RoleController@create')-> name('create_role')
+        ->middleware('role:Admin');
+    Route::get('/ActualizarRole/{id}','RoleController@edit')->name('view_actualizar_role')
+        ->middleware('role:Admin'); 
+    Route::post('/ActualizarRole/{id}','RoleController@update')->name('actualizar_role')
+        ->middleware('role:Admin');    
 });    
 
 

@@ -27,8 +27,8 @@ $rol = $array[0]->name;
                             </ul>
                         </li>
                         <li>
-                            <a href="table.html">
-                                <i class="fas fa-table"></i>Roles</a>
+                            <a href="{{route('view_role')}}">
+                                <i class="fas fa-user"></i>Roles</a>
                         </li>
                         <li>
                             <a href="table.html">
