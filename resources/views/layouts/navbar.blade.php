@@ -7,7 +7,7 @@ $rol = $array[0]->name;
 <div class="navbar navbar-expand-md navbar-dark bg-indigo">
     <div class="navbar-brand wmin-200">
         <a href="index.html" class="d-inline-block">
-            <img src="{{asset("assets/limitless/global_assets/images/logo_light.png")}}" alt="">
+            <img src="{{asset("assets/limitless/sky-logo-header.png")}}" alt="" style="height:30px">
         </a>
     </div>
 

@@ -5,31 +5,31 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="assets/cool/login_css/images/icons/favicon.ico"/>
+	<link rel="icon" type="image/png" href="assets/limitless/login_css/images/icons/favicon.ico"/>
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/vendor/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/limitless/login_css/vendor/bootstrap/css/bootstrap.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/limitless/login_css/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/fonts/iconic/css/material-design-iconic-font.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/limitless/login_css/fonts/iconic/css/material-design-iconic-font.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/vendor/animate/animate.css">
+	<link rel="stylesheet" type="text/css" href="assets/limitless/login_css/vendor/animate/animate.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/vendor/css-hamburgers/hamburgers.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/limitless/login_css/vendor/css-hamburgers/hamburgers.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/vendor/animsition/css/animsition.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/limitless/login_css/vendor/animsition/css/animsition.min.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/vendor/select2/select2.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/limitless/login_css/vendor/select2/select2.min.css">
 <!--===============================================================================================-->	
-	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/vendor/daterangepicker/daterangepicker.css">
+	<link rel="stylesheet" type="text/css" href="assets/limitless/login_css/vendor/daterangepicker/daterangepicker.css">
 <!--===============================================================================================-->
-	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/css/util.css">
-	<link rel="stylesheet" type="text/css" href="assets/cool/login_css/css/main.css">
+	<link rel="stylesheet" type="text/css" href="assets/limitless/login_css/css/util.css">
+	<link rel="stylesheet" type="text/css" href="assets/limitless/login_css/css/main.css">
 <!--===============================================================================================-->
 </head>
 <body>
 	<div class="limiter">
-		<div class="container-login100" style="background-image: url('assets/cool/login_css/images/bg-01.jpg');">
+		<div class="container-login100" style="background-image: url('assets/limitless/login_css/images/bg-01.jpg');">
 			<div class="wrap-login100">
                 <form class="login100-form validate-form"  method="POST" action="{{ route('login') }}"">
                     @csrf
@@ -87,21 +87,21 @@
 	<div id="dropDownSelect1"></div>
 	
 <!--===============================================================================================-->
-	<script src="assets/cool/login_css/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<script src="assets/limitless/login_css/vendor/jquery/jquery-3.2.1.min.js"></script>
 <!--===============================================================================================-->
-	<script src="assets/cool/login_css/vendor/animsition/js/animsition.min.js"></script>
+	<script src="assets/limitless/login_css/vendor/animsition/js/animsition.min.js"></script>
 <!--===============================================================================================-->
-	<script src="assets/cool/login_css/vendor/bootstrap/js/popper.js"></script>
-	<script src="assets/cool/login_css/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/limitless/login_css/vendor/bootstrap/js/popper.js"></script>
+	<script src="assets/limitless/login_css/vendor/bootstrap/js/bootstrap.min.js"></script>
 <!--===============================================================================================-->
-	<script src="assets/cool/login_css/vendor/select2/select2.min.js"></script>
+	<script src="assets/limitless/login_css/vendor/select2/select2.min.js"></script>
 <!--===============================================================================================-->
-	<script src="assets/cool/login_css/vendor/daterangepicker/moment.min.js"></script>
-	<script src="assets/cool/login_css/vendor/daterangepicker/daterangepicker.js"></script>
+	<script src="assets/limitless/login_css/vendor/daterangepicker/moment.min.js"></script>
+	<script src="assets/limitless/login_css/vendor/daterangepicker/daterangepicker.js"></script>
 <!--===============================================================================================-->
-	<script src="assets/cool/login_css/vendor/countdowntime/countdowntime.js"></script>
+	<script src="assets/limitless/login_css/vendor/countdowntime/countdowntime.js"></script>
 <!--===============================================================================================-->
-	<script src="assets/cool/login_css/js/main.js"></script>
+	<script src="assets/limitless/login_css/js/main.js"></script>
 
 </body>
 </html>
