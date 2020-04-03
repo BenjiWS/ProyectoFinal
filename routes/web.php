@@ -29,5 +29,10 @@ Route::middleware(['auth'])->group(function () {
         })->name('view_create_user')->middleware('role:Admin');      
     Route::post('/CreateUser','UserController@create')-> name('create_user')
         ->middleware('role:Admin');
-});
+    Route::get('/Actualizar/{id}','UserController@edit')->name('view_actualizar')
+        ->middleware('role:Admin'); 
+    Route::post('/Actualizar/{id}','UserController@update')->name('actualizar')
+        ->middleware('role:Admin'); 
+});    
+
 

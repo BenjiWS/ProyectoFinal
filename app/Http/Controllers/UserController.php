@@ -70,7 +70,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $users = User::findOrFail($id);
+        return view('user.actualizar',compact("users"));
     }
 
     /**
@@ -82,7 +83,18 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $newUser =  User::find($id);
+        $newUser->ci = $request->ci;
+        $newUser->name = $request->name;
+        $newUser->lastname = $request->lastname;
+        $newUser->email = $request->email;
+        $newUser->phone = $request->phone;
+        $newUser->address = $request->address;
+        $newUser->username = $request->username;
+        $newUser->password = Hash::make($request->password);
+        $newUser->state = true;
+        $newUser->save();
+        return response()->json(['success'=>'Product deleted successfully.']);
     }
 
     /**

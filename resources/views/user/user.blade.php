@@ -22,7 +22,7 @@
                         <th>phone</th>
                         <th>address</th>
                         <th>status</th>
-                        <th></th>
+                        <th>Botton</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,6 +37,7 @@
                             <td>{{$user -> phone}}</td>
                             <td>{{$user -> address}}</td>
                             <td>{{$user -> state}}</td>
+                            <td><a href="{{route('view_actualizar', $user->id)}}">Update</a></td>
                         </tr>
                         @endforeach
                     </tr>

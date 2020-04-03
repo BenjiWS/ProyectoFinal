@@ -20,7 +20,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="assets/cool/images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="{{asset("assets/cool/images/icon/avatar-01.jpg")}}" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
