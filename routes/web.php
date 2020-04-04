@@ -35,20 +35,22 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('role:Admin'); 
 
     //Roles
-    Route::resource('ajaxroles','RoleController');
+    Route::resource('ajaxroles','RoleController')->middleware('role:Admin');  
     Route::get('/ViewRole', 'RoleController@index')->name('view_role')
         ->middleware('role:Admin');  
-    /*Route::get('/ViewCreateRole', function () {return view('role.register');
-        })->name('view_create_role')->middleware('role:Admin');      
-    Route::post('/CreateRol','RoleController@create')-> name('create_role')
-        ->middleware('role:Admin');  */
+    Route::POST('/ViewRole', 'RoleController@stateChange')->name('update_role')
+        ->middleware('role:Admin');  
 
     //Rooms
     Route::get('/ViewRoom', 'RoomController@index')->name('view_room')
     ->middleware('role:Admin');
-    Route::get('/ViewCreateRoom', function () {return view('room.register');
+    Route::get('/ViewCreateRoom', function () {return view('rooms.register');
     })->name('view_create_room')->middleware('role:Admin'); 
     Route::post('/CreateRoom','RoomController@create')-> name('create_room')
+        ->middleware('role:Admin');
+    Route::get('/ActualizarRoom/{id}','RoomController@edit')->name('view_update_room')
+        ->middleware('role:Admin'); 
+    Route::post('/ActualizarRoom/{id}','RoomController@update')->name('update_room')
         ->middleware('role:Admin');
 });    
 

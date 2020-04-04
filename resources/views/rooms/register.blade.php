@@ -1,40 +1,41 @@
 @extends('home')
 @section('seccion')
-<link href="assets/cool/css/style_user.css" rel="stylesheet" media="all">
-<form method="POST" action="{{ route('create_user') }}" >
+<form method="POST" action="{{ route('create_room') }}" >
     @csrf
 <div class="container register card">
-                    <h3  class="register-heading">Register User</h3>
+                    <h3  class="register-heading">Register Room</h3>
                     <div class="row register-form">
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" name="ci"  id="ci" class="form-control validate" value="" placeholder="Ci *">
+                                <input type="text" name="number"  id="number" class="form-control validate" value="" placeholder="Number *">
                             </div>
                             <div class="form-group">
-                                <input type="text" id="name" name="name"  class="form-control validate" placeholder="First Name *" value="" />
+                                <input type="text" id="name" name="name"  class="form-control validate" placeholder="Name *" value="" />
                             </div>
                             <div class="form-group">
-                                <input id="lastname" name="lastname" type="text" class="form-control validate" placeholder="Last Name *" value="" />
+                                <input id="price" name="price" type="text" class="form-control validate" placeholder="Price *" value="" />
                             </div>
                             <div class="form-group">
-                                <input id="email" name="email" type="email" class="form-control validate" placeholder="Email *" value="" />
+                                <input id="type" name="type" type="text" class="form-control validate" placeholder="Type *" value="" />
                             </div>
-                
+                            <div class="form-group">
+                                <input id="state" name="state" type="text" class="form-control" placeholder="State *" value="" />
+                            </div>
 
 
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <input id="phone" name="phone" type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="" />
+                                <input id="numberBeds" name="numberBeds" type="text"  class="form-control" placeholder="Number Beds *" value="" />
                             </div>
                             <div class="form-group">
-                                <input id="address" name="address"  type="text" class="form-control" placeholder="Address *" value="" />
+                                <input id="numberBathroom" name="numberBathroom"  type="text" class="form-control" placeholder="Number Bathroom *" value="" />
                             </div>
                             <div class="form-group">
-                                <input id="username" name="username" type="text" maxlength="10" minlength="10" class="form-control" placeholder="User *" value="" />
+                                <input id="numberTV" name="numberTV" type="text"  class="form-control" placeholder="Number TV *" value="" />
                             </div>
                             <div class="form-group">
-                                <input id="password" name="password" type="password" class="form-control" placeholder="Password *" value="" />
+                                <input id="cradle" name="cradle" type="text" class="form-control" placeholder="Cradle *" value="" />
                             </div>
                             <button type="submit" class="btnRegister" onclick="Evento()">Register</button>
                         </div>

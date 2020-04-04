@@ -1,42 +1,45 @@
 @extends('home')
 @section('seccion')
-<link href="{{asset("assets/cool/css/style_user.css")}}" rel="stylesheet" media="all">
-<form action="{{ route('actualizar', $users-> id)}}"  method="POST">
+<form action="{{ route('update_room', $rooms -> id)}}"  method="POST">
     @csrf
-<div class="container register card">
-                    <h3  class="register-heading">Actualizar User</h3>
-                    <div class="row register-form">
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" name="ci"  id="ci" class="form-control validate"  placeholder="Id*" value="{{$users->ci}}">
-                            </div>
-                            <div class="form-group">
-                                <input type="text" id="name" name="name"  class="form-control validate" placeholder="First Name *" value="{{$users->name}}" />
-                            </div>
-                            <div class="form-group">
-                                <input id="lastname" name="lastname" type="text" class="form-control validate" placeholder="Last Name *" value="{{$users->lastname}}" />
-                            </div>
-                            <div class="form-group">
-                                <input id="email" name="email" type="text" class="form-control validate" placeholder="Email *" value="{{$users->email}}" />
-                            </div>
-            
-                        </div>
-                        <div class="col-md-6">
-                            <div class="form-group">
-                                <input id="phone" name="phone" type="text" maxlength="10" minlength="10" class="form-control" placeholder="Phone *" value="{{$users->phone}}" />
-                            </div>
-                            <div class="form-group">
-                                <input id="address" name="address"  type="text" class="form-control" placeholder="Address *" value="{{$users->address}}" />
-                            </div>
-                            <div class="form-group">
-                                <input id="username" name="username" type="text" maxlength="10" minlength="10" class="form-control" placeholder="User *" value="{{$users->username}}" />
-                            </div>
-                            <div class="form-group">
-                                <input id="password" name="password" type="password" class="form-control" placeholder="Password *" value="{{$users->password}}" />
-                            </div>
-                            <button type="submit" class="btnRegister" onclick="">Actualizar</button>
-                        </div>
-                    </div>
-             </div>
+    <div class="container register card">
+        <h3  class="register-heading">Register Room</h3>
+        <div class="row register-form">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input type="text" name="number"  id="number" class="form-control validate" value="{{$rooms -> number}}" placeholder="Number *">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="name" name="name"  class="form-control validate" placeholder="Name *" value="{{$rooms -> name}}" />
+                </di
+                <div class="form-group">
+                    <input id="price" name="price" type="text" class="form-control validate" placeholder="Price *" value="{{$rooms -> price}}" />
+                </div>
+                <div class="form-group">
+                    <input id="type" name="type" type="text" class="form-control validate" placeholder="Type *" value="{{$rooms -> type}}" />
+                </div>
+                <div class="form-group">
+                    <input id="state" name="state" type="text" class="form-control" placeholder="State *" value="{{$rooms -> state}}" />
+                </div>
+
+
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input id="numberBeds" name="numberBeds" type="text" maxlength="10" minlength="10" class="form-control" placeholder="Number Beds *" value="{{$rooms -> numberBeds}}" />
+                </div>
+                <div class="form-group">
+                    <input id="numberBathroom" name="numberBathroom"  type="text" class="form-control" placeholder="Number Bathroom *" value="{{$rooms -> numberBathroom}}" />
+                </div>
+                <div class="form-group">
+                    <input id="numberTV" name="numberTV" type="text" maxlength="10" minlength="10" class="form-control" placeholder="Number TV *" value="{{$rooms -> numberTV}}" />
+                </div>
+                <div class="form-group">
+                    <input id="cradle" name="cradle" type="text" class="form-control" placeholder="Cradle *" value="{{$rooms -> cradle}}" />
+                </div>
+                <button type="submit" class="btnRegister" onclick="Evento()">Register</button>
+            </div>
+        </div>
+ </div>
        </form>
 @endsection

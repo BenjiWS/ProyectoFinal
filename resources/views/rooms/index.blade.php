@@ -13,11 +13,10 @@
     <div class="text-center">
         <a href="{{route ('view_create_room')}}" class="btn btn-primary rounded-round">AGREGAR ROOM</a>
        </div>
-          <table class="table datatable-basic data-table">
+          <table class="table datatable-basic dataTable">
                 <thead>
                     <tr>
                         <th>id</th>
-                        <th>number</tk>
                         <th>name</th>
                         <th>price</th>
                         <th>type</th>
@@ -26,6 +25,7 @@
                         <th>numberTV</th>
                         <th>cradle</th>
                         <th>state</th>
+                        <th>Actions</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -45,8 +45,8 @@
         ajax:"{{route('view_room')}}",
         columns: [
                 {
-                    data:'number',
-                    name:'number'
+                    data: 'id',
+                    name: 'id'
                 },
                 {
                     data:'name',
@@ -66,11 +66,11 @@
                 },
                 {
                     data:'numberBathroom',
-                    name:'numberbathroom'
+                    name:'numberBathroom'
                 },
                 {
-                    data:'numberTv',
-                    name:'numberTv'
+                    data:'numberTV',
+                    name:'numberTV'
                 },
                 {
                     data:'cradle',
@@ -79,8 +79,6 @@
                 {
                     data:'state',
                     name:'state',
-                    orderable:false,
-                    searchable:false
                 },
                 {
                     data: 'actions',
@@ -91,7 +89,14 @@
             ]
         });
 
+        $('body').on('click', '.editRoom', function () {
+            var idRoom = $(this).data("id");
+            $.ajax({
+                type: "GET",
+                url: "{{ route('view_role') }}"
 
-});
+            });
+       });
+    });
 </script>
 @endsection

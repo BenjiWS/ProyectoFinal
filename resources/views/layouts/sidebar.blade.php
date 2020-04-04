@@ -40,11 +40,11 @@ $rol = $array[0]->name;
                     <li class="nav-item">
                         <a href="{{ route('logout') }}" class="nav-link"
                            onclick="event.preventDefault();
-                                         document.getElementById('logout-form').submit();">
+                                         document.getElementById('logout').submit();">
                           <i class="icon-switch2"></i>{{ __('Logout') }}
                         </a>
 
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        <form id="logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                             @csrf
                         </form>
                     </li>
@@ -93,7 +93,7 @@ $rol = $array[0]->name;
 
                         <ul class="nav nav-group-sub" data-submenu-title="Starter kit">
                             <li class="nav-item"><a href="{{route('view_room')}}"  class="nav-link">Table Room</a></li>
-                            <li class="nav-item"><a href="{{route('create_room')}}"  class="nav-link">Register Room</a></li>
+                            <li class="nav-item"><a href="{{route('view_create_room')}}"  class="nav-link">Register Room</a></li>
                         </ul>
                     </li>
                     <li class="nav-item"><a href="" class="nav-link"><i class="icon-width"></i><span>Services</span></a></li>

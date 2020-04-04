@@ -29,9 +29,9 @@ class RoleController extends Controller
                     return $btn;
                 })
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editProduct">Edit</a>';
+                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editRol">Edit</a>';
    
-                    $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct">Delete</a>';
+                    $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm stateRol">Change</a>';
 
                      return $btn;
                 })
@@ -93,7 +93,10 @@ class RoleController extends Controller
         $rol = Role::find($id);
         return response()->json($rol);
     }
+    public function stateChange($id)
+    {
 
+    }
     /**
      * Update the specified resource in storage.
      *
@@ -114,9 +117,17 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        Role::find($id)->delete();
-     
+        $rol = Role::find($id);
+        if($rol->state == false)
+        {
+            $rol->state= true ;
+            $rol->save();
+        }
+        else
+        {
+            $rol->state= false ;
+            $rol->save();
+        }
         return response()->json(['success'=>'Product deleted successfully.']);
-        //
     }
 }

@@ -17,27 +17,29 @@ class RoomController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Room::latest()->get();
+            $data = Room::all();
             return DataTables::of($data)
-                ->addColumn('state', function ($row) {
-                    if ($row->state == true) {
-                        $btn = '<span class="badge badge-success">Activado</span>';
+                ->addColumn('cradle', function ($row) {
+                    if ($row->cradle == true) {
+                        $btn = '<span class="badge badge-success">Disponible</span>';
                     } else {
-                        $btn = '<span class="badge badge-danger">Desactivado</span>';
+                        $btn = '<span class="badge badge-danger">No Disponible</span>';
                     }
                     return $btn;
                 })
-                ->addColumn('actions', function ($row) {
-                    $btn =
-                        '<button id="' . $row->id . '" type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left rounded-round"><i class="icon-spinner11 mr-2"></i>Estado</button></a>
-                    <a class="btn btn-success rounded-round" href="#">
-                    <i class="icon-pencil5 mr-2"></i>Editar</a>';
+                ->addColumn('state',function($row){
+                    $btn = '<span class="badge badge-success">'.$row->state.'</span>';
                     return $btn;
                 })
-                ->rawColumns(['state', 'actions'])
+                ->addColumn('actions', function ($row) {
+                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editRoom">Edit</a>';
+   
+                     return $btn;
+                })
+                ->rawColumns(['cradle','state', 'actions'])
                 ->make(true);
         }
-        return view('rooms.room');
+        return view('rooms.index');
     }
 
     /**
@@ -45,9 +47,20 @@ class RoomController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-    
+        $newRoom = new Room();
+        $newRoom->number = $request->number;
+        $newRoom->name = $request->name;
+        $newRoom->price = $request->price;
+        $newRoom->type = $request->type;
+        $newRoom->numberBeds = $request->numberBeds;
+        $newRoom->numberBathroom = $request->numberBathroom;
+        $newRoom->numberTV = $request->numberTV;
+        $newRoom->state= $request->state;
+        $newRoom->cradle = true;
+        $newRoom->save();
+        return view('rooms.index');
     }
 
     /**
@@ -80,7 +93,8 @@ class RoomController extends Controller
      */
     public function edit($id)
     {
-      
+        $rooms = Room::findOrFail($id);
+        return view('rooms.actualizar',compact("rooms"));
     }
 
     /**
@@ -92,7 +106,18 @@ class RoomController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+        $newRoom = Room::find($id);
+        $newRoom->number = $request->number;
+        $newRoom->name = $request->name;
+        $newRoom->price = $request->price;
+        $newRoom->type = $request->type;
+        $newRoom->numberBeds = $request->numberBeds;
+        $newRoom->numberBathroom = $request->numberBathroom;
+        $newRoom->numberTV = $request->numberTV;
+        $newRoom->state= $request->state;
+        $newRoom->cradle = true;
+        $newRoom->save();
+        return view('rooms.index');
     }
 
     /**

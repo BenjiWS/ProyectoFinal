@@ -38,8 +38,18 @@
 	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/styling/uniform.min.js")}}"></script>
 	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/styling/switchery.min.js")}}"></script>
 	<script src="{{asset("assets/limitless/global_assets/js/demo_pages/form_checkboxes_radios.js")}}"></script>
-    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
-    
+	<script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+	<link href="{{asset("assets/limitless/style_user.css")}}" rel="stylesheet" media="all">
+    <style>
+		.dataTables_info
+		{
+			padding: 20px !important;
+		}
+		.dataTables_paginate
+		{
+			padding: 20px !important;
+		}
+	</style>
 
 </head>
 <body>

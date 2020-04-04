@@ -39,47 +39,62 @@
             }
         });
         var table = $('.data-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('ajaxroles.index') }}",
-        columns: [
-            {data: 'id', name: 'id'},
-            {data: 'name', name: 'name'},
-            {data: 'state', name: 'state'},
-            {data: 'action', name: 'action', orderable: false, searchable: false},
-        ]
-    });
-          
-    $('#createNew').click(function () {
-        $('#saveBtn').val("create-product");
-        $('#idRole').val('');
-        $('#registerForm').trigger("reset");
-        $('#modelHeading').html("Create New Product");
-        $('#ajaxModel').modal('show');
-    });
+            processing: true,
+            serverSide: true,
+            ajax: "{{ route('ajaxroles.index') }}",
+            columns: [{
+                    data: 'id',
+                    name: 'id'
+                },
+                {
+                    data: 'name',
+                    name: 'name'
+                },
+                {
+                    data: 'state',
+                    name: 'state'
+                },
+                {
+                    data: 'action',
+                    name: 'action',
+                    orderable: false,
+                    searchable: false
+                },
+            ]
+        });
+
+        $('#createNew').click(function () {
+            $('#saveBtn').val("create-product");
+            $('#idRole').val('');
+            $('#registerForm').trigger("reset");
+            $('#modelHeading').html("Create New Role");
+            $('#ajaxModel').modal('show');
+        });
+
         $('#saveBtn').click(function (e) {
-        e.preventDefault();
-        $(this).html('Sending..');
-    
-        $.ajax({
-          data: $('#registerForm').serialize(),
-          url: "{{ route('ajaxroles.store') }}",
-          type: "POST",
-          dataType: 'json',
-          success: function (data) {
-     
-              $('#registerForm').trigger("reset");
-              $('#ajaxModel').modal('hide');
-              table.draw();
-         
-          },
-          error: function (data) {
-              console.log('Error:', data);
-              $('#saveBtn').html('Save Changes');
-          }
-      });
-    });
-        $('body').on('click', '.editProduct', function () {
+            e.preventDefault();
+            $(this).html('Sending..');
+
+            $.ajax({
+                data: $('#registerForm').serialize(),
+                url: "{{ route('ajaxroles.store') }}",
+                type: "POST",
+                dataType: 'json',
+                success: function (data) {
+
+                    $('#registerForm').trigger("reset");
+                    $('#ajaxModel').modal('hide');
+                    table.draw();
+
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                    $('#saveBtn').html('Save Changes');
+                }
+            });
+        });
+        
+        $('body').on('click', '.editRol', function () {
             var idRole = $(this).data('id');
             $.get("{{ route('ajaxroles.index') }}" + '/' + idRole + '/edit',
                 function (data) {
@@ -90,7 +105,7 @@
                     $('#name').val(data.name);
                 })
         });
-        $('body').on('click', '.deleteProduct', function () {
+        $('body').on('click', '.stateRol', function () {
             var rol_id = $(this).data("id");
             $.ajax({
                 type: "DELETE",
