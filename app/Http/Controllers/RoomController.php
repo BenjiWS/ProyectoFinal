@@ -6,7 +6,7 @@ use App\Room;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
-
+use Yajra\DataTables\DataTables;
 class RoomController extends Controller
 {
     /**
@@ -15,9 +15,29 @@ class RoomController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request)
-    {           
-        $rooms = DB::table('rooms')->select('number','name','price','type','numberBeds','numberBathroom','numberTV','cradle','state')->get();
-        return view('room.room',compact('rooms'));
+    {
+        if ($request->ajax()) {
+            $data = Room::latest()->get();
+            return DataTables::of($data)
+                ->addColumn('state', function ($row) {
+                    if ($row->state == true) {
+                        $btn = '<span class="badge badge-success">Activado</span>';
+                    } else {
+                        $btn = '<span class="badge badge-danger">Desactivado</span>';
+                    }
+                    return $btn;
+                })
+                ->addColumn('actions', function ($row) {
+                    $btn =
+                        '<button id="' . $row->id . '" type="button" class="btn bg-teal-400 btn-labeled btn-labeled-left rounded-round"><i class="icon-spinner11 mr-2"></i>Estado</button></a>
+                    <a class="btn btn-success rounded-round" href="#">
+                    <i class="icon-pencil5 mr-2"></i>Editar</a>';
+                    return $btn;
+                })
+                ->rawColumns(['state', 'actions'])
+                ->make(true);
+        }
+        return view('rooms.room');
     }
 
     /**

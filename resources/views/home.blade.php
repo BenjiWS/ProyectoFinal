@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title>Home</title>
 	<!-- Global stylesheets -->
@@ -33,11 +34,15 @@
 	<script src="{{asset("assets/limitless/asset/js/app.js")}}"></script>
 	<script src="{{asset("assets/limitless/global_assets/js/demo_pages/dashboard.js")}}"></script>
 	<!-- /theme JS files -->
+
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/styling/uniform.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/styling/switchery.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/demo_pages/form_checkboxes_radios.js")}}"></script>
+    <script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
     
 
 </head>
 <body>
-
 	<!-- Main navbar -->
 	@include('layouts.navbar')
 	<!-- /main navbar -->

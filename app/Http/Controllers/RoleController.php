@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\Role;
+use DataTables;
 
 class RoleController extends Controller
 {
@@ -16,8 +17,29 @@ class RoleController extends Controller
      */
     public function index(Request $request)
     {
-        $roles = DB::table('roles')->select('id','name','state')->get();
-        return view('role.roles',compact('roles'));
+        if ($request->ajax()) {
+            $data = Role::all();
+            return DataTables::of($data)
+                ->addColumn('state', function ($row) {
+                    if ($row->state == true) {
+                        $btn = '<span class="badge badge-success">Activado</span>';
+                    } else {
+                        $btn = '<span class="badge badge-danger">Desactivado</span>';
+                    }
+                    return $btn;
+                })
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editProduct">Edit</a>';
+   
+                    $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm deleteProduct">Delete</a>';
+
+                     return $btn;
+                })
+                ->rawColumns(['state', 'action'])
+                ->make(true);
+        }
+        return view('role.roles');
+
     }
 
     /**
@@ -27,12 +49,13 @@ class RoleController extends Controller
      */
     public function create(Request $request)
     {
-        $newRol = new Role();
+
+      /*$newRol = new Role();
         $newRol->name = $request->name;
         $newRol->state = true;
         $newRol->save();
         $roles = DB::table('roles')->select('id','name','state')->get();
-        return view('role.roles',compact('roles'));
+        return view('role.roles',compact('roles'));*/
     }
 
     /**
@@ -43,7 +66,9 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Role::updateOrCreate(['id' => $request->idRole],
+        ['name' => $request->name, 'state' => false]);        
+        return response()->json(['success'=>'Product saved successfully.']);
     }
 
     /**
@@ -65,7 +90,8 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        //
+        $rol = Role::find($id);
+        return response()->json($rol);
     }
 
     /**
@@ -88,6 +114,9 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
+        Role::find($id)->delete();
+     
+        return response()->json(['success'=>'Product deleted successfully.']);
         //
     }
 }

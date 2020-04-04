@@ -35,12 +35,13 @@ Route::middleware(['auth'])->group(function () {
         ->middleware('role:Admin'); 
 
     //Roles
+    Route::resource('ajaxroles','RoleController');
     Route::get('/ViewRole', 'RoleController@index')->name('view_role')
         ->middleware('role:Admin');  
-    Route::get('/ViewCreateRole', function () {return view('role.register');
+    /*Route::get('/ViewCreateRole', function () {return view('role.register');
         })->name('view_create_role')->middleware('role:Admin');      
     Route::post('/CreateRol','RoleController@create')-> name('create_role')
-        ->middleware('role:Admin');  
+        ->middleware('role:Admin');  */
 
     //Rooms
     Route::get('/ViewRoom', 'RoomController@index')->name('view_room')

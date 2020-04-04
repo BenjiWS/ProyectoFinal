@@ -19,7 +19,7 @@ class CreateServicesTable extends Migration
             $table->string('type');
             $table->integer('price');
             $table->string('description');
-            $table->string('status');
+            $table->boolean('state');
             $table->timestamps();
         });
     }

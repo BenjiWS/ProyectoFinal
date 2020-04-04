@@ -5,8 +5,8 @@
                 <h4 class="modal-title" id="modelHeading"></h4>
             </div>
             <div class="modal-body">
-                <form id="registerForm" name="registerForm" class="form-horizontal">
-                   <input type="hidden" name="idRole" id="idRole">
+                <form id="formActu" name="formActu" class="form-horizontal">
+                   <label name="product_id" id="product_id"><label
                     <div class="form-group">
                         <label for="name" class="col-sm-2 control-label">Name</label>
                         <div class="col-sm-12">
