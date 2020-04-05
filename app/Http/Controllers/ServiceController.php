@@ -3,12 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use App\Role;
+use App\Service;
 use DataTables;
 
-class RoleController extends Controller
+class ServiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -18,7 +16,7 @@ class RoleController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Role::all();
+            $data = Service::all();
             return DataTables::of($data)
                 ->addColumn('state', function ($row) {
                     if ($row->state == true) {
@@ -29,17 +27,16 @@ class RoleController extends Controller
                     return $btn;
                 })
                 ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editRol">Edit</a>';
+                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editService">Edit</a>';
    
-                    $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm stateRol">Change</a>';
+                    $btn = $btn.' <a href="javascript:void(0)" data-id="'.$row->id.'"  class="btn btn-danger btn-sm stateChange">Change</a>';
 
                      return $btn;
                 })
                 ->rawColumns(['state', 'action'])
                 ->make(true);
         }
-        return view('role.roles');
-
+        return view('servicios.index');
     }
 
     /**
@@ -47,8 +44,9 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request)
+    public function create()
     {
+        //
     }
 
     /**
@@ -59,9 +57,14 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
-        Role::updateOrCreate(['id' => $request->idRole],
-        ['name' => $request->name, 'state' => false]);        
+        if($request -> ajax())
+        {
+        Service::updateOrCreate(['id' => $request->idService],
+        ['name' => $request->name, 'type' => $request->type,
+        'price' => $request->price,'description' => $request->description,
+        'state' => true]);        
         return response()->json(['success'=>'Product saved successfully.']);
+        }
     }
 
     /**
@@ -74,7 +77,12 @@ class RoleController extends Controller
     {
         //
     }
-
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
     /**
      * Show the form for editing the specified resource.
      *
@@ -83,13 +91,10 @@ class RoleController extends Controller
      */
     public function edit($id)
     {
-        $rol = Role::find($id);
-        return response()->json($rol);
+        $service = Service::find($id);
+        return response()->json($service);
     }
-    public function stateChange($id)
-    {
 
-    }
     /**
      * Update the specified resource in storage.
      *
@@ -99,7 +104,6 @@ class RoleController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
     }
 
     /**
@@ -110,16 +114,16 @@ class RoleController extends Controller
      */
     public function destroy($id)
     {
-        $rol = Role::find($id);
-        if($rol->state == false)
+        $service = Service::find($id);
+        if($service->state == false)
         {
-            $rol->state= true ;
-            $rol->save();
+            $service->state= true ;
+            $service->save();
         }
         else
         {
-            $rol->state= false ;
-            $rol->save();
+            $service->state= false ;
+            $service->save();
         }
         return response()->json(['success'=>'Product deleted successfully.']);
     }

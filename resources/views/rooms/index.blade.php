@@ -89,14 +89,6 @@
             ]
         });
 
-        $('body').on('click', '.editRoom', function () {
-            var idRoom = $(this).data("id");
-            $.ajax({
-                type: "GET",
-                url: "{{ route('view_role') }}"
-
-            });
-       });
     });
 </script>
 @endsection

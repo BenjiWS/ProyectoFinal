@@ -96,7 +96,7 @@ $rol = $array[0]->name;
                             <li class="nav-item"><a href="{{route('view_create_room')}}"  class="nav-link">Register Room</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a href="" class="nav-link"><i class="icon-width"></i><span>Services</span></a></li>
+                    <li class="nav-item"><a href="{{route('view_service')}}" class="nav-link"><i class="icon-width"></i><span>Services</span></a></li>
                     @endif
                     @if($rol == "User")
                     <li class="nav-item ">
