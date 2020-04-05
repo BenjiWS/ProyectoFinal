@@ -40,6 +40,11 @@
 	<script src="{{asset("assets/limitless/global_assets/js/demo_pages/form_checkboxes_radios.js")}}"></script>
 	<script src="//cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 	<link href="{{asset("assets/limitless/style_user.css")}}" rel="stylesheet" media="all">
+
+	<!--Notification -->
+	<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+
     <style>
 		.dataTables_info
 		{

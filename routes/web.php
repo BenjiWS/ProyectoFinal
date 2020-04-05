@@ -47,5 +47,22 @@ Route::middleware(['auth'])->middleware('role:Admin')->group(function () {
     Route::resource('ajaxservices','ServiceController');  
     Route::get('/ViewService', 'ServiceController@index')->name('view_service');  
 });    
+Route::middleware(['auth'])->middleware('role:User')->group(function () {
+
+
+    Route::get('/ViewRoomUser', 'RoomController@indexUser')->name('view_roomUser');
+    Route::get('/ViewServiceUser', 'ServiceController@indexUser')->name('view_service_user');
+    Route::resource('ajaxreserva','ReservationController');  
+
+
+    Route::get('/ViewReserva', 'ReservationController@index')->name('view_reserva');
+    Route::get('/ViewReserva2', 'ClienteController@index')->name('view_cliente');  
+    Route::resource('ajaxcliente','CLienteController');
+    Route::post('/CreateReserva', 'ReservationController@create')->name('create_reserva');
+    Route::get('/ViewCreateCliente', function () {return view('cliente.register');
+    })->name('view_create_cliente');  
+    Route::post('/CreateCliente', 'ClienteController@create')->name('create_cliente'); 
+
+});
 
 

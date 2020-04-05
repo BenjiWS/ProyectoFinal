@@ -38,6 +38,31 @@ class ServiceController extends Controller
         }
         return view('servicios.index');
     }
+    public function indexUser(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Service::all();
+            return DataTables::of($data)
+                ->addColumn('state', function ($row) {
+                    if ($row->state == true) {
+                        $btn = '<span class="badge badge-success">Activado</span>';
+                    } else {
+                        $btn = '<span class="badge badge-danger">Desactivado</span>';
+                    }
+                    return $btn;
+                })
+                ->addColumn('action', function ($row) {
+                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editService">Edit</a>';
+   
+                    $btn = $btn.' <a href="javascript:void(0)" data-id="'.$row->id.'"  class="btn btn-danger btn-sm stateChange">Change</a>';
+
+                     return $btn;
+                })
+                ->rawColumns(['state', 'action'])
+                ->make(true);
+        }
+        return view('servicios.indexUser');
+    }
 
     /**
      * Show the form for creating a new resource.

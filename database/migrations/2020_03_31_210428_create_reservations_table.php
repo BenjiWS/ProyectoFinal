@@ -17,7 +17,7 @@ class CreateReservationsTable extends Migration
             $table->id();
             $table->bigInteger('idRoom')->unsigned();
             $table->bigInteger('idCliente')->unsigned();
-            $table->dateTime('starDate');
+            $table->dateTime('startDate');
             $table->dateTime('endDate');
             $table->string('type');
             $table->string('state');

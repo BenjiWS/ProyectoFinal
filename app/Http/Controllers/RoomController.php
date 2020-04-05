@@ -42,6 +42,28 @@ class RoomController extends Controller
         return view('rooms.index');
     }
 
+    public function indexUser(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Room::all();
+            return DataTables::of($data)
+                ->addColumn('cradle', function ($row) {
+                    if ($row->cradle == true) {
+                        $btn = '<span class="badge badge-success">Disponible</span>';
+                    } else {
+                        $btn = '<span class="badge badge-danger">No Disponible</span>';
+                    }
+                    return $btn;
+                })
+                ->addColumn('state',function($row){
+                    $btn = '<span class="badge badge-success">'.$row->state.'</span>';
+                    return $btn;
+                })
+                ->rawColumns(['cradle','state'])
+                ->make(true);
+        }
+        return view('rooms.indexUser');
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -117,7 +139,7 @@ class RoomController extends Controller
         $newRoom->state= $request->state;
         $newRoom->cradle = true;
         $newRoom->save();
-        return view('rooms.index');
+        return route('view_room');
     }
 
     /**

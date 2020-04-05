@@ -100,21 +100,18 @@ $rol = $array[0]->name;
                     @endif
                     @if($rol == "User")
                     <li class="nav-item ">
-                        <a href="#" class="nav-link"><i class="icon-width"></i> <span>Services</span></a>
+                        <a href="{{route('view_service_user')}}" class="nav-link"><i class="icon-width"></i> <span>Services</span></a>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link"><i class="icon-stack"></i> <span> Table Room</span></a>
-
-                        <ul class="nav nav-group-sub" data-submenu-title="Starter kit">
-                            <li class="nav-item"><a href=""  class="nav-link">Table Room</a></li>
-                        </ul>
+                        <a href="{{route('view_roomUser')}}" class="nav-link"><i class="icon-stack"></i> <span> Table Room</span></a>
                     </li>              
                     <li class="nav-item nav-item-submenu">
-                        <a href="#" class="nav-link"><i class="icon-copy"></i> <span>Reservation</span></a>
+                        <a href="" class="nav-link"><i class="icon-copy"></i> <span>Reservation</span></a>
 
                         <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                            <li class="nav-item"> <a href="{{route('view_user')}}" class="nav-link">Table Reservation</a></li>
-                            <li class="nav-item"> <a href="{{route ('view_create_user')}}" class="nav-link">Register Reservation</a></li>
+                            <li class="nav-item"> <a href="{{route('view_reserva')}}" class="nav-link">Table Reservation</a></li>
+                            <li class="nav-item"> <a href="{{route ('create_reserva')}}" class="nav-link">Register Reservation</a></li>
+                            <li class="nav-item"> <a href="{{route ('view_create_cliente')}}" class="nav-link">Register Cliente</a></li>
                         </ul>
                     </li>
                     @endif
