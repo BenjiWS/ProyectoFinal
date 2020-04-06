@@ -17,11 +17,7 @@ class PermissionController extends Controller
         if ($request->ajax()) {
             $data = Permission::all();
             return DataTables::of($data)
-                ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editService">Edit</a>';
-                     return $btn;
-                })
-                ->rawColumns(['state', 'action'])
+                ->rawColumns([])
                 ->make(true);
         }
         return view('permisos.index');

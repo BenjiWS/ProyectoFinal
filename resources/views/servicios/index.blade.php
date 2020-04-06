@@ -82,7 +82,7 @@
             $('#saveBtn').val("create-product");
             $('#idService').val('');
             $('#registerForm').trigger("reset");
-            $('#modelHeading').html("Create New Role");
+            $('#modelHeading').html("Create New Service");
             $('#ajaxModel').modal('show');
         });
 
@@ -111,7 +111,7 @@
             var idRole = $(this).data('id');
             $.get("{{ route('ajaxservices.index') }}" + '/' + idRole + '/edit',
                 function (data) {
-                    $('#modelHeading').html("Edit Rol");
+                    $('#modelHeading').html("Edit Service");
                     $('#register').val("edit-user");
                     $('#ajaxModel').modal('show');
                     $('#idService').val(data.id);

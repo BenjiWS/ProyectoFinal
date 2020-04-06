@@ -25,7 +25,6 @@
                 <th>Name</th>
                 <th>Route</th>
                 <th>Description</th>
-                <th width="280px">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -58,13 +57,7 @@
                 {
                     data: 'description',
                     name: 'description'
-                },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false
-                },
+                }
             ]
         });
 
