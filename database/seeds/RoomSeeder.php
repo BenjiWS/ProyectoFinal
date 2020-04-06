@@ -12,7 +12,6 @@ class RoomSeeder extends Seeder
     public function run()
     {
         DB::table('rooms')->insert([
-            'number'=>'123',
             'name'=>'A15',
             'price'=>"200",
             'type'=>"Big",
@@ -23,7 +22,6 @@ class RoomSeeder extends Seeder
             'state'=>"Disponible"
         ]);
         DB::table('rooms')->insert([
-            'number'=>'456',
             'name'=>'B10',
             'price'=>"200",
             'type'=>"Small",

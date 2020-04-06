@@ -3,7 +3,7 @@
 <!-- 2 columns form -->
 <div class="card">
     <div class="card-header header-elements-inline">
-        <h5 class="card-title">Register Cliente</h5>
+        <h5 class="card-title"  style="font-size: 20px;">Register Cliente</h5>
         <div class="header-elements">
             <div class="list-icons">
                 <a class="list-icons-item" data-action="collapse"></a>
@@ -14,7 +14,7 @@
     </div>
 
     <div class="card-body">
-        <form name="registerForm" id="registerForm">
+        <form name="registerForm" id="registerForm" class="form-validate-jquery">
             <div class="row">
                 <div class="col-md-6">
                     <fieldset>
@@ -25,7 +25,7 @@
                             <div class="col-lg-9">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="text" id="ci" name="ci" placeholder="Ci" class="form-control">
+                                        <input type="text" id="ci" name="ci" placeholder="Ci" class="form-control number" required>
                                     </div>
                                 </div>
                             </div>
@@ -36,12 +36,12 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <input type="text" id="name" name="name" placeholder="First name"
-                                            class="form-control">
+                                            class="form-control" required>
                                     </div>
 
                                     <div class="col-md-6">
                                         <input type="text" id="lastname" name="lastname" placeholder="Last name"
-                                            class="form-control">
+                                            class="form-control" required>
                                     </div>
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                             <label class="col-lg-3 col-form-label">Email:</label>
                             <div class="col-lg-9">
                                 <input type="email" id="email" name="email" placeholder="eugene@kopyov.com"
-                                    class="form-control">
+                                    class="form-control " required>
                             </div>
                         </div>
 
@@ -59,30 +59,31 @@
                             <label class="col-lg-3 col-form-label">Phone #:</label>
                             <div class="col-lg-9">
                                 <input type="text" id="phone" name="phone" placeholder="+99-99-9999-9999"
-                                    class="form-control">
+                                    class="form-control number" required>
                             </div>
                         </div>
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label">Address:</label>
                             <div class="col-lg-9">
                                 <input id="address" name="address" type="text" placeholder="Your address of living"
-                                    class="form-control">
+                                    class="form-control" required>
                             </div>
                         </div>
                     </fieldset>
                 </div>
                 <div class="col-md-6">
                     <fieldset>
-                        <legend class="font-weight-semibold text-uppercase font-size-sm">
+                        <input type="hidden">
+                        <legend class="font-weight-semibold">
                             <i class="icon-file-text2 mr-2"></i>
                             Credit Card Information
                         </legend>
-
+                        
                         <div class="form-group row">
                             <label class="col-lg-3 col-form-label">Enter your username:</label>
                             <div class="col-lg-9">
                                 <input type="text" id="username" name="username" class="form-control"
-                                    placeholder="Eugene Kopyov">
+                                    placeholder="Eugene Kopyov" required>
                             </div>
                         </div>
 
@@ -90,7 +91,13 @@
                             <label class="col-lg-3 col-form-label">Enter your password:</label>
                             <div class="col-lg-9">
                                 <input type="password" id="password" name="password" class="form-control"
-                                    placeholder="Your strong password">
+                                    placeholder="Your strong password" required>
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label class="col-lg-3 col-form-label">Repeat password</label>
+                            <div class="col-lg-9">
+                                <input type="password" name="repeat_password" class="form-control" required placeholder="Try different password">
                             </div>
                         </div>
 
@@ -98,7 +105,7 @@
                             <label class="col-lg-3 col-form-label">Your Number Credit Card:</label>
                             <div class="col-lg-9">
                                 <input type="text" id="number_Credit_Card" name="number_Credit_Card"
-                                    placeholder="Number Credit Card" class="form-control">
+                                    placeholder="Number Credit Card" class="form-control number" required>
                             </div>
                         </div>
                         <div class="form-group row">
@@ -107,24 +114,21 @@
                                 <div class="row">
                                     <div class="col-md-6">
                                         <input type="text" id="number_CVV" name="number_CVV" placeholder="Number CVV"
-                                            class="form-control">
+                                            class="form-control number" required>
                                     </div>
 
                                     <div class="col-md-6">
                                         <input type="text" id="date_Card" name="date_Card" placeholder="Date Card"
-                                            class="form-control">
+                                            class="form-control number" required >
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </fieldset>
                 </div>
-
-
             </div>
-
             <div class="text-right">
-                <button id="saveBtn" type="submit" class="btn btn-primary">Submit form <i
+                <button  type="submit" class="btn btn-primary ml-3" id="saveBtn">Submit form <i
                         class="icon-paperplane ml-2"></i></button>
             </div>
         </form>
@@ -157,6 +161,7 @@
             }
         });
         $('#saveBtn').click(function (e) {
+            if($("#registerForm").valid()){
             e.preventDefault();
             $(this).html('Sending..');
             $.ajax({
@@ -165,17 +170,19 @@
                 type: "POST",
                 dataType: 'JSON',
                 success: function (data) {
-                    $('#registerForm').trigger("reset");
-                    console.log("registro");
+                    toastr.success("Registro Completo")
+                    $('#registerForm').trigger("reset");                   
+                    window.location.href="{{ route('view_reserva') }}"
 
                 },
                 error: function (data) {
-                    toastr.error("Are you the six fingered man?")
+                    toastr.error("Tienes Problemas?")
                     console.log($('#registerForm').serialize());
                     console.log('Error:', data);
                     $('#saveBtn').html('Save Changes');
                 }
             });
+        }
         });
     });
 

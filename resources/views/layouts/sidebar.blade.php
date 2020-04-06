@@ -110,7 +110,7 @@ $rol = $array[0]->name;
 
                         <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                             <li class="nav-item"> <a href="{{route('view_reserva')}}" class="nav-link">Table Reservation</a></li>
-                            <li class="nav-item"> <a href="{{route ('create_reserva')}}" class="nav-link">Register Reservation</a></li>
+                            <li class="nav-item"> <a href="{{route ('view_create_reserva')}}" class="nav-link">Register Reservation</a></li>
                             <li class="nav-item"> <a href="{{route ('view_create_cliente')}}" class="nav-link">Register Cliente</a></li>
                         </ul>
                     </li>

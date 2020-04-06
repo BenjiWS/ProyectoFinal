@@ -38,7 +38,7 @@ $rol = $array[0]->name;
 
             <li class="nav-item dropdown dropdown-user">
                 <a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
-                    <img src="assets/limitless/global_assets/images/placeholders/placeholder.jpg" class="rounded-circle" alt="">
+                    <img src="{{asset("assets/limitless/global_assets/images/placeholders/placeholder.jpg")}}" class="rounded-circle" alt="">
                     <span>{{ Auth::user()->name }} {{Auth::user()->lastname}}</span>
                 </a>
 

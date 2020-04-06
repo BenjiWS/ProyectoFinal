@@ -59,8 +59,17 @@ class RoleController extends Controller
      */
     public function store(Request $request)
     {
+        $respuesta =0;
+        if($request->state == "Activado")
+        {
+            $respuesta=true;
+        }
+        if($request->state == "Desactivado")
+        {
+            $respuesta=false;
+        }
         Role::updateOrCreate(['id' => $request->idRole],
-        ['name' => $request->name, 'state' => false]);        
+        ['name' => $request->name, 'state' => $respuesta]);        
         return response()->json(['success'=>'Product saved successfully.']);
     }
 

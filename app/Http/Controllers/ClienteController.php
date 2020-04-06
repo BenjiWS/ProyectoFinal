@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Cliente;
+use App\Reservation;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
@@ -20,13 +21,13 @@ class ClienteController extends Controller
             $data = Cliente::all();
             return DataTables::of($data)
                 ->addColumn('actions', function ($row) {
-                    $btn = '<a href="'.route('view_update_room',["id"=>$row->id]).'"   data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editRoom">Edit</a>';
+                    $btn = '<a href="'.route('view_update_cliente',["id"=>$row->id]).'"   data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editRoom">Edit</a>';
                      return $btn;
                 })
                 ->rawColumns(['actions'])
                 ->make(true);
         }
-        return view('cliente.index');
+        return view('reservas.index');
     }
 
     /**
@@ -59,6 +60,17 @@ class ClienteController extends Controller
         $newCliente->username = $request->username;
         $newCliente->password = $request->password;
         $newCliente->save();        
+        $newReserva = new Reservation();
+        $idCliente= Cliente::all();
+        $ultimo =$idCliente->last();
+        $newReserva->idCliente= $ultimo;
+        $newReserva->idRoom=$request->idRoom;
+        $newReserva->startDate= $request->startDate;
+        $newReserva->endDate= $request->endDate;
+        $newReserva->penalty=$request->penalty;
+        $newReserva->username = $request->username;
+        $newReserva->password = $request->password;
+        $newReserva->stateUsername=true;
         return response()->json(['success'=>'Cliente saved successfully.']);
     }
 
@@ -81,7 +93,8 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        //
+        $clientes = Cliente::findOrFail($id);
+        return view('cliente.actualizar',compact("clientes"));
     }
 
     /**
@@ -91,9 +104,26 @@ class ClienteController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+    
+    }
+    public function actualizar(Request $request)
+    {
+        $newCliente = Cliente::find($request->id);
+        $newCliente->ci = $request->ci;
+        $newCliente->name = $request->name;
+        $newCliente->lastname = $request->lastname;
+        $newCliente->email = $request->email;
+        $newCliente->phone = $request->phone;
+        $newCliente->address = $request->address;
+        $newCliente->number_Credit_Card = $request->number_Credit_Card;
+        $newCliente->number_CVV = $request->number_CVV;
+        $newCliente->date_Card = $request->date_Card;
+        $newCliente->username = $request->username;
+        $newCliente->password = $request->password;
+        $newCliente->save();        
+        return response()->json(['success'=>'Cliente saved successfully.']);
     }
 
     /**

@@ -70,18 +70,17 @@
             $('#modelHeading').html("Create New Role");
             $('#ajaxModel').modal('show');
         });
-
         $('#saveBtn').click(function (e) {
+            if($("#registerForm").valid()){
             e.preventDefault();
             $(this).html('Sending..');
-
             $.ajax({
                 data: $('#registerForm').serialize(),
                 url: "{{ route('ajaxroles.store') }}",
                 type: "POST",
                 dataType: 'json',
                 success: function (data) {
-
+                    console.log($('#registerForm').serialize());
                     $('#registerForm').trigger("reset");
                     $('#ajaxModel').modal('hide');
                     table.draw();
@@ -92,6 +91,7 @@
                     $('#saveBtn').html('Save Changes');
                 }
             });
+        }
         });
         
         $('body').on('click', '.editRol', function () {

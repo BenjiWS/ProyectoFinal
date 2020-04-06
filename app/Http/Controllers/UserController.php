@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\role_user;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
@@ -18,6 +19,11 @@ class UserController extends Controller
         $users = DB::table('users')->select('id', 'ci', 'name', 'lastname','email','phone','state')->get();
         return view('user.user',compact('users'));
     }
+    public function Roles(Request $request)
+    {
+        $roles = DB::table('roles')->select('id', 'name')->get();
+        return view('user.register',compact('roles'));
+    }
 
     /**
      * Show the form for creating a new resource.
@@ -27,6 +33,7 @@ class UserController extends Controller
     public function create(Request $request)
     {
         $newUser = new User();
+        $newRol = new role_user();
         $newUser->ci = $request->ci;
         $newUser->name = $request->name;
         $newUser->lastname = $request->lastname;
@@ -37,6 +44,11 @@ class UserController extends Controller
         $newUser->password = Hash::make($request->password);
         $newUser->state = true;
         $newUser->save();
+        $idUser= User::all();
+        $ultimo =$idUser->last();
+        $newRol->role_id =$request->rol;
+        $newRol->user_id=$ultimo->id;
+        $newRol->save();
         $users = DB::table('users')->select('id', 'ci', 'name', 'lastname','email','phone','state')->get();
         return view('user.user',compact('users'));
     }

@@ -110,9 +110,9 @@
                 <th>Lastname</th>
                 <th>Email</th>
                 <th>Phone</th>
-                <th>Number Credit Card</th>
-                <th>Number CVV</th>
-                <th>Credit Card Date</th>
+                <th>Credit Card</th>
+                <th>CVV</th>
+                <th>Date</th>
                 <th width="100px">Action</th>
             </tr>
         </thead>
@@ -130,7 +130,7 @@
         var table = $('.data-table-2').DataTable({
             processing: true,
             serverSide: true,
-            ajax: "{{ route('view_reserva') }}",
+            ajax: "{{ route('view_cliente') }}",
             columns: [{
                     data: 'id',
                     name: 'id'
@@ -138,6 +138,10 @@
                 {
                     data: 'name',
                     name: 'name'
+                },
+                {
+                    data: 'lastname',
+                    name: 'lastname'
                 },
                 {
                     data: 'email',
@@ -148,12 +152,8 @@
                     name: 'phone'
                 },
                 {
-                    data: 'address',
-                    name: 'address'
-                },
-                {
-                    data: 'number_Card_Credit',
-                    name: 'number_Card_Credit'
+                    data: 'number_Credit_Card',
+                    name: 'number_Credit_Card'
                 },
                 {
                     data: 'number_CVV',
@@ -164,8 +164,8 @@
                     name: 'date_Card'
                 },
                 {
-                    data: 'action',
-                    name: 'action',
+                    data: 'actions',
+                    name: 'actions',
                     orderable: false,
                     searchable: false
                 },

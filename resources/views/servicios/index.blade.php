@@ -87,6 +87,7 @@
         });
 
         $('#saveBtn').click(function (e) {
+            if($("#registerForm").valid()){
             e.preventDefault();
             $(this).html('Sending..');
             $.ajax({
@@ -103,6 +104,7 @@
                     console.log(error);
                 }
             });
+          }
         });
 
         $('body').on('click', '.editService', function () {
@@ -121,8 +123,8 @@
                 })
         });
         $('body').on('click', '.stateChange', function () { 
-     var service_id = $(this).data("id");     
-     $.ajax({
+        var service_id = $(this).data("id");     
+         $.ajax({
          type: "DELETE",
          url: "{{ route('ajaxservices.store') }}"+'/'+service_id,
          success: function (data) {

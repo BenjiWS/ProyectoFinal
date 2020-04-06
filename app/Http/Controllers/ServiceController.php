@@ -84,10 +84,19 @@ class ServiceController extends Controller
     {
         if($request -> ajax())
         {
+        $respuesta =0;
+        if($request->state == "Activado")
+        {
+            $respuesta=true;
+        }
+        if($request->state == "Desactivado")
+        {
+            $respuesta=false;
+        }
         Service::updateOrCreate(['id' => $request->idService],
         ['name' => $request->name, 'type' => $request->type,
         'price' => $request->price,'description' => $request->description,
-        'state' => true]);        
+        'state' => $respuesta]);        
         return response()->json(['success'=>'Product saved successfully.']);
         }
     }

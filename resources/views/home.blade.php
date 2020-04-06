@@ -45,6 +45,27 @@
 	<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
 
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/validation/validate.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/inputs/touchspin.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/selects/select2.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/styling/switch.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/styling/switchery.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/styling/uniform.min.js")}}"></script>
+
+	<script src="{{asset("assets/limitless/global_assets/js/demo_pages/form_validation.js")}}"></script>
+
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/extensions/jquery_ui/widgets.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/extensions/jquery_ui/effects.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/extensions/mousewheel.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/extensions/jquery_ui/globalize/globalize.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/extensions/jquery_ui/globalize/cultures/globalize.culture.de-DE.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/extensions/jquery_ui/globalize/cultures/globalize.culture.ja-JP.js")}}"></script>
+
+	<script src="{{asset("assets/limitless/global_assets/js/demo_pages/jqueryui_forms.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/extensions/jquery_ui/interactions.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/plugins/forms/selects/select2.min.js")}}"></script>
+	<script src="{{asset("assets/limitless/global_assets/js/demo_pages/form_select2.js")}}"></script>
     <style>
 		.dataTables_info
 		{

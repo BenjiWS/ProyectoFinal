@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Role;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,9 +23,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::middleware(['auth'])->middleware('role:Admin')->group(function () {
 	//Usuarios
-	Route::get('/ViewUser', 'UserController@index')->name('view_user');   
-    Route::get('/ViewCreateUser', function () {return view('user.register');
-        })->name('view_create_user');      
+    Route::get('/ViewUser', 'UserController@index')->name('view_user');   
+    Route::get('/ViewCreateUser', "UserController@Roles")->name('view_create_user');      
     Route::post('/CreateUser','UserController@create')-> name('create_user');
     Route::get('/Actualizar/{id}','UserController@edit')->name('view_actualizar'); 
     Route::post('/Actualizar/{id}','UserController@update')->name('actualizar'); 
@@ -53,15 +52,17 @@ Route::middleware(['auth'])->middleware('role:User')->group(function () {
     Route::get('/ViewRoomUser', 'RoomController@indexUser')->name('view_roomUser');
     Route::get('/ViewServiceUser', 'ServiceController@indexUser')->name('view_service_user');
     Route::resource('ajaxreserva','ReservationController');  
-
-
     Route::get('/ViewReserva', 'ReservationController@index')->name('view_reserva');
     Route::get('/ViewReserva2', 'ClienteController@index')->name('view_cliente');  
-    Route::resource('ajaxcliente','CLienteController');
-    Route::post('/CreateReserva', 'ReservationController@create')->name('create_reserva');
     Route::get('/ViewCreateCliente', function () {return view('cliente.register');
     })->name('view_create_cliente');  
-    Route::post('/CreateCliente', 'ClienteController@create')->name('create_cliente'); 
+    Route::get('/ViewCreateReserva', function () {return view('reservas.register');
+    })->name('view_create_reserva');  
+    Route::get('/ActualizarCliente/{id}','ClienteController@edit')->name('view_update_cliente'); 
+    Route::post('/ActualizarCLiente','ClienteController@actualizar')->name('update_cliente');
+    Route::resource('ajaxcliente','CLienteController');
+    Route::resource('ajaxreserva','ReservaController');
+    
 
 });
 
