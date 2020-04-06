@@ -28,7 +28,7 @@ class RoomController extends Controller
                     return $btn;
                 })
                 ->addColumn('state',function($row){
-                    $btn = '<span class="badge badge-success">'.$row->state.'</span>';
+                    $btn = '<span class="badge badge-info">'.$row->state.'</span>';
                     return $btn;
                 })
                 ->addColumn('actions', function ($row) {
@@ -72,7 +72,15 @@ class RoomController extends Controller
     public function create(Request $request)
     {
         $newRoom = new Room();
-        $newRoom->number = $request->number;
+        $respuesta =0;
+        if($request->cradle == "Activado")
+        {
+            $respuesta=true;
+        }
+        if($request->cradle == "Desactivado")
+        {
+            $respuesta=false;
+        }
         $newRoom->name = $request->name;
         $newRoom->price = $request->price;
         $newRoom->type = $request->type;
@@ -80,7 +88,7 @@ class RoomController extends Controller
         $newRoom->numberBathroom = $request->numberBathroom;
         $newRoom->numberTV = $request->numberTV;
         $newRoom->state= $request->state;
-        $newRoom->cradle = true;
+        $newRoom->cradle = $respuesta;
         $newRoom->save();
         return view('rooms.index');
     }
@@ -129,6 +137,15 @@ class RoomController extends Controller
     public function update(Request $request,$id)
     {
         $newRoom = Room::find($id);
+        $respuesta =0;
+        if($request->cradle == "Activado")
+        {
+            $respuesta=true;
+        }
+        if($request->cradle == "Desactivado")
+        {
+            $respuesta=false;
+        }
         $newRoom->name = $request->name;
         $newRoom->price = $request->price;
         $newRoom->type = $request->type;
@@ -136,9 +153,9 @@ class RoomController extends Controller
         $newRoom->numberBathroom = $request->numberBathroom;
         $newRoom->numberTV = $request->numberTV;
         $newRoom->state= $request->state;
-        $newRoom->cradle = true;
+        $newRoom->cradle = $respuesta;
         $newRoom->save();
-        return route('view_room');
+        return view('rooms.index');
     }
 
     /**

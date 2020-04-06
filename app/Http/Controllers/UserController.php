@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use App\User;
+use DataTables;
 class UserController extends Controller
 {
     /**
@@ -16,8 +17,28 @@ class UserController extends Controller
      */
     public function index(Request $request)
     {  
-        $users = DB::table('users')->select('id', 'ci', 'name', 'lastname','email','phone','state')->get();
-        return view('user.user',compact('users'));
+        if ($request->ajax()) {
+            $data = User::all();
+            return DataTables::of($data)
+            ->addColumn('state', function ($row) {
+                if ($row->state == true) {
+                    $btn = '<span class="badge badge-success">Activado</span>';
+                } else {
+                    $btn = '<span class="badge badge-danger">Desactivado</span>';
+                }
+                return $btn;
+            })
+                ->addColumn('actions', function ($row) {
+                    $btn = '<a href="'.route('view_actualizar',["id"=>$row->id]).'"   data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editRoom">Edit</a>';
+                    $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm stateUser">Change</a>';
+                    $btn = $btn.' <a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Rol" class="btn btn-success btn-sm assignRol">Asign Rol</a>';
+                    return $btn;
+                })
+                ->rawColumns(['state','actions'])
+                ->make(true);
+        }
+        $roles = DB::table('roles')->select('id', 'name')->get();
+        return view('user.user',compact('roles'));
     }
     public function Roles(Request $request)
     {
@@ -49,8 +70,8 @@ class UserController extends Controller
         $newRol->role_id =$request->rol;
         $newRol->user_id=$ultimo->id;
         $newRol->save();
-        $users = DB::table('users')->select('id', 'ci', 'name', 'lastname','email','phone','state')->get();
-        return view('user.user',compact('users'));
+        $roles = DB::table('roles')->select('id', 'name')->get();
+        return view('user.user',compact('roles'));
     }
 
     /**
@@ -107,8 +128,8 @@ class UserController extends Controller
         $newUser->password = Hash::make($request->password);
         $newUser->state = true;
         $newUser->save();
-        $users = DB::table('users')->select('id', 'ci', 'name', 'lastname','email','phone','state')->get();
-        return view('user.user',compact('users'));
+        $roles = DB::table('roles')->select('id', 'name')->get();
+        return view('user.user',compact('roles'));
     }
 
     /**
@@ -119,6 +140,17 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user = User::find($id);
+        if($user->state == false)
+        {
+            $user->state= true ;
+            $user->save();
+        }
+        else
+        {
+            $user->state= false ;
+            $user->save();
+        }
+        return response()->json(['success'=>'User deleted successfully.']);
     }
 }

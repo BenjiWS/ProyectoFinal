@@ -103,6 +103,9 @@ $rol = $array[0]->name;
                     @can('view_service')
                     <li class="nav-item"><a href="{{route('view_service')}}" class="nav-link"><i class="icon-width"></i><span>Services</span></a></li>
                     @endcan
+                    @can('view_permission')
+                    <li class="nav-item"><a href="{{route('view_permission')}}" class="nav-link"><i class="icon-tree5"></i><span>Permissions</span></a></li>
+                    @endcan
                     @if($rol == "User")
                     <li class="nav-item ">
                         <a href="{{route('view_service_user')}}" class="nav-link"><i class="icon-width"></i> <span>Services</span></a>

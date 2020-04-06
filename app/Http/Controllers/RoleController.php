@@ -38,7 +38,9 @@ class RoleController extends Controller
                 ->rawColumns(['state', 'action'])
                 ->make(true);
         }
-        return view('role.roles');
+        $roles = DB::table('roles')->select('id', 'name')->get();
+        $permisos = DB::table('permissions')->select('id', 'name')->get();
+        return view('role.roles',compact('roles','permisos'));
 
     }
 

@@ -72,5 +72,15 @@ class PermissionRolSeeder extends Seeder
        $permiso_rol->permission_id=12;
        $permiso_rol->role_id=1;
        $permiso_rol->save();
+
+       $permiso_rol=new permission_role;
+       $permiso_rol->permission_id=13;
+       $permiso_rol->role_id=1;
+       $permiso_rol->save();
+
+       $permiso_rol=new permission_role;
+       $permiso_rol->permission_id=14;
+       $permiso_rol->role_id=1;
+       $permiso_rol->save();
     }
 }

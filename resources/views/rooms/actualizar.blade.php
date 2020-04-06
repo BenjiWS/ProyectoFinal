@@ -17,7 +17,14 @@
                     <input id="type" name="type" type="text" class="form-control validate" placeholder="Type *" value="{{$rooms -> type}}"  required/>
                 </div>
                 <div class="form-group">
-                    <input id="state" name="state" type="text" class="form-control" placeholder="State *" value="{{$rooms -> state}}" required />
+                    <label>State</label>
+                    <select class="form-control select" id="state" name="state" roldata-fouc required>
+                        <option value="{{$rooms -> state}}">{{$rooms -> state}}</option>
+                        <option value="Disponible">Disponible</option>
+                        <option value="No Disponible">Mo Disponible</option>
+                        <option value="En Espera">En Espera</option>
+                        <option value="Ocupado">Ocupado</option>
+                      </select>
                 </div>
 
 
@@ -33,7 +40,20 @@
                     <input id="numberTV" name="numberTV" type="text"  class="form-control" placeholder="Number TV *" value="{{$rooms -> numberTV}}" required />
                 </div>
                 <div class="form-group">
-                    <input id="cradle" name="cradle" type="text" class="form-control" placeholder="Cradle *" value="{{$rooms -> cradle}}" required />
+                    <label class="d-block font-weight-semibold">Cradle</label>
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input-styled" name="cradle"   value="Activado"  data-fouc>
+                             Activado
+                        </label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <label class="form-check-label">
+                            <input type="radio" class="form-check-input-styled" name="cradle" value="Desactivado" data-fouc>
+                             Desactivado
+                        </label>
+                    </div>
                 </div>
                 <button type="submit" class="btnRegister" >Actualizar</button>
             </div>

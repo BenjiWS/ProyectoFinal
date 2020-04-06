@@ -16,15 +16,15 @@
           <table class="table datatable-basic dataTable">
                 <thead>
                     <tr>
-                        <th>id</th>
-                        <th>name</th>
-                        <th>price</th>
-                        <th>type</th>
-                        <th>numberBeds</th>
-                        <th>numberBathroom</th>
-                        <th>numberTV</th>
-                        <th>cradle</th>
-                        <th>state</th>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Price</th>
+                        <th>Type</th>
+                        <th>NumberBeds</th>
+                        <th>NumberBathroom</th>
+                        <th>NumberTV</th>
+                        <th>Cradle</th>
+                        <th>State</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
