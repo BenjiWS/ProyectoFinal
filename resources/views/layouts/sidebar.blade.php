@@ -76,18 +76,21 @@ $rol = $array[0]->name;
                             </span>
                         </a>
                     </li>
-                    @if($rol == "Admin")
                     <li class="nav-item nav-item-submenu">
+                        @can('view_user')
                         <a href="#" class="nav-link"><i class="icon-copy"></i> <span>User</span></a>
-
                         <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                             <li class="nav-item"> <a href="{{route('view_user')}}" class="nav-link">Table User</a></li>
                             <li class="nav-item"> <a href="{{route ('view_create_user')}}" class="nav-link">Register User</a></li>
                         </ul>
+                        @endcan
                     </li>
+                    @can('view_role')
                     <li class="nav-item">
                         <a href="{{route('view_role')}}"class="nav-link"><i class="icon-color-sampler"></i> <span>Roles</span></a>
                     </li>
+                    @endcan
+                    @can('view_room')
                     <li class="nav-item nav-item-submenu">
                         <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Room</span></a>
 
@@ -96,8 +99,10 @@ $rol = $array[0]->name;
                             <li class="nav-item"><a href="{{route('view_create_room')}}"  class="nav-link">Register Room</a></li>
                         </ul>
                     </li>
+                    @endcan
+                    @can('view_service')
                     <li class="nav-item"><a href="{{route('view_service')}}" class="nav-link"><i class="icon-width"></i><span>Services</span></a></li>
-                    @endif
+                    @endcan
                     @if($rol == "User")
                     <li class="nav-item ">
                         <a href="{{route('view_service_user')}}" class="nav-link"><i class="icon-width"></i> <span>Services</span></a>
