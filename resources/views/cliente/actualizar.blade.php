@@ -119,7 +119,7 @@
 
                                     <div class="col-md-6">
                                         <input type="text" id="date_Card" name="date_Card" placeholder="Date Card"
-                                            class="form-control number" required value="{{$clientes->date_Card}}">
+                                            class="form-control  date-picker-P" required  autocomplete="off" value="{{$clientes->date_Card}}">
                                     </div>
                                 </div>
                             </div>
@@ -134,6 +134,19 @@
         </form>
     </div>
 </div>
+<script>
+    $(function() {
+            $('.date-picker-P').datepicker( {
+            changeMonth: true,
+            changeYear: true,
+            showButtonPanel: false,
+            dateFormat: 'yy-mm',
+            onClose: function(dateText, inst) { 
+                $(this).datepicker('setDate', new Date(inst.selectedYear, inst.selectedMonth, 1));
+            }
+            });
+        });    
+</script>
 <!-- /2 columns form -->
 <script>
     $(document).ready(function () {

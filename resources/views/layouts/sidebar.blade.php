@@ -106,7 +106,6 @@ $rol = $array[0]->name;
                     @can('view_permission')
                     <li class="nav-item"><a href="{{route('view_permission')}}" class="nav-link"><i class="icon-tree5"></i><span>Permissions</span></a></li>
                     @endcan
-                    @if($rol == "User")
                     <li class="nav-item ">
                         <a href="{{route('view_service_user')}}" class="nav-link"><i class="icon-width"></i> <span>Services</span></a>
                     </li>
@@ -119,11 +118,8 @@ $rol = $array[0]->name;
                         <ul class="nav nav-group-sub" data-submenu-title="Layouts">
                             <li class="nav-item"> <a href="{{route('view_reserva')}}" class="nav-link">Table Reservation</a></li>
                             <li class="nav-item"> <a href="{{route ('view_create_reserva')}}" class="nav-link">Register Reservation</a></li>
-                            <li class="nav-item"> <a href="{{route ('view_create_cliente')}}" class="nav-link">Register Cliente</a></li>
                         </ul>
-                    </li>
-                    @endif
-                        
+                    </li>                        
                 </ul>
             </div>
         </div>

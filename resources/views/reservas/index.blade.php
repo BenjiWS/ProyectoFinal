@@ -56,8 +56,8 @@
                     name: 'idCliente'
                 },
                 {
-                    data: 'starDate',
-                    name: 'starDate'
+                    data: 'startDate',
+                    name: 'startDate'
                 },
                 {
                     data: 'endDate',
@@ -80,8 +80,8 @@
                     name: 'stateUsername'
                 },
                 {
-                    data: 'action',
-                    name: 'action',
+                    data: 'actions',
+                    name: 'actions',
                     orderable: false,
                     searchable: false
                 },

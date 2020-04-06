@@ -63,14 +63,19 @@ class ClienteController extends Controller
         $newReserva = new Reservation();
         $idCliente= Cliente::all();
         $ultimo =$idCliente->last();
-        $newReserva->idCliente= $ultimo;
-        $newReserva->idRoom=$request->idRoom;
-        $newReserva->startDate= $request->startDate;
-        $newReserva->endDate= $request->endDate;
+        $newReserva->idCliente= 1;
+        $newReserva->idRoom=$request->room;
+        $startdate = date("y-m-d", strtotime($request->startDate));
+        $newReserva->startDate= $startdate;
+        $enddate = date("y-m-d", strtotime($request->endDate));
+        $newReserva->endDate= $enddate;
+        $newReserva->type=$request->type;
+        $newReserva->state=$request->state;
         $newReserva->penalty=$request->penalty;
         $newReserva->username = $request->username;
         $newReserva->password = $request->password;
         $newReserva->stateUsername=true;
+        $newReserva->save();
         return response()->json(['success'=>'Cliente saved successfully.']);
     }
 
@@ -93,6 +98,7 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
+        echo("aqui");
         $clientes = Cliente::findOrFail($id);
         return view('cliente.actualizar',compact("clientes"));
     }

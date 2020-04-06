@@ -22,7 +22,6 @@
                 <th>Price</th>
                 <th>Description</th>
                 <th>State</th>
-                <th width="280px">Action</th>
             </tr>
         </thead>
         <tbody>
@@ -63,13 +62,7 @@
                 {
                     data: 'state',
                     name: 'state'
-                },
-                {
-                    data: 'action',
-                    name: 'action',
-                    orderable: false,
-                    searchable: false
-                },
+                }
             ]
         });
     });

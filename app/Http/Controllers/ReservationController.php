@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Cliente;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Reservation;
+use Illuminate\Support\Facades\DB;
+
 class ReservationController extends Controller
 {
     /**
@@ -38,7 +41,12 @@ class ReservationController extends Controller
         }
         return view('reservas.index');
     }
-
+    public function rooms()
+    {
+        $rooms = DB::table('rooms')->select('id', 'name')->get();
+        $clientes = DB::table('clientes')->select('id', 'ci')->get();
+        return view('reservas.register',compact('rooms','clientes'));
+    }
     /**
      * Show the form for creating a new resource.
      *
@@ -68,7 +76,21 @@ class ReservationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $newReserva = new Reservation();
+        $newReserva->idCliente= 1;
+        $newReserva->idRoom=$request->room1;
+        $startdate = date("y-m-d", strtotime($request->startDate1));
+        $newReserva->startDate= $startdate;
+        $enddate = date("y-m-d", strtotime($request->endDate1));
+        $newReserva->endDate= $enddate;
+        $newReserva->type=$request->type1;
+        $newReserva->state=$request->state1;
+        $newReserva->penalty=$request->penalty1;
+        $newReserva->username = 12345;
+        $newReserva->password = 1234;
+        $newReserva->stateUsername=true;
+        $newReserva->save();
+        return response()->json(['success'=>'Reserva saved successfully.']);
     }
 
     /**

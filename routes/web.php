@@ -62,14 +62,10 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('ajaxreserva','ReservationController');  
     Route::get('/ViewReserva', 'ReservationController@index')->name('view_reserva');
     Route::get('/ViewReserva2', 'ClienteController@index')->name('view_cliente');  
-    Route::get('/ViewCreateCliente', function () {return view('cliente.register');
-    })->name('view_create_cliente');  
-    Route::get('/ViewCreateReserva', function () {return view('reservas.register');
-    })->name('view_create_reserva');  
+    Route::get('/ViewCreateReserva', 'ReservationController@rooms')->name('view_create_reserva');  
     Route::get('/ActualizarCliente/{id}','ClienteController@edit')->name('view_update_cliente'); 
     Route::post('/ActualizarCLiente','ClienteController@actualizar')->name('update_cliente');
-    Route::resource('ajaxcliente','CLienteController');
-    Route::resource('ajaxreserva','ReservaController');
+    Route::resource('ajaxcliente','ClienteController');
     
 
 });

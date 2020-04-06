@@ -51,14 +51,7 @@ class ServiceController extends Controller
                     }
                     return $btn;
                 })
-                ->addColumn('action', function ($row) {
-                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editService">Edit</a>';
-   
-                    $btn = $btn.' <a href="javascript:void(0)" data-id="'.$row->id.'"  class="btn btn-danger btn-sm stateChange">Change</a>';
-
-                     return $btn;
-                })
-                ->rawColumns(['state', 'action'])
+                ->rawColumns(['state'])
                 ->make(true);
         }
         return view('servicios.indexUser');

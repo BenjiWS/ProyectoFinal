@@ -15,10 +15,10 @@ class CreateClientesTable extends Migration
     {
         Schema::create('clientes', function (Blueprint $table) {
             $table->id();
-            $table->string('ci');
+            $table->string('ci')->unique();
             $table->string('name');
             $table->string('lastname');
-            $table->string('email')->unique();
+            $table->string('email');
             $table->bigInteger('phone');
             $table->string('address');
             $table->integer("number_Credit_Card");
