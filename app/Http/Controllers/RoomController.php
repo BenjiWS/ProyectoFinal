@@ -28,7 +28,18 @@ class RoomController extends Controller
                     return $btn;
                 })
                 ->addColumn('state',function($row){
-                    $btn = '<span class="badge badge-info">'.$row->state.'</span>';
+                    if($row->state == "Disponible")
+                    {
+                       $btn = '<span class="badge badge-success">'.$row->state.'</span>';
+                    }
+                    if($row->state == "Ocupado")
+                    {
+                        $btn = '<span class="badge badge-danger">'.$row->state.'</span>';
+                    }
+                    if($row->state == "En Espera")
+                    {
+                       $btn = '<span class="badge bg-blue">'.$row->state.'</span>';
+                    }
                     return $btn;
                 })
                 ->addColumn('actions', function ($row) {
@@ -56,7 +67,18 @@ class RoomController extends Controller
                     return $btn;
                 })
                 ->addColumn('state',function($row){
-                    $btn = '<span class="badge badge-success">'.$row->state.'</span>';
+                    if($row->state == "Disponible")
+                    {
+                       $btn = '<span class="badge badge-success">'.$row->state.'</span>';
+                    }
+                    if($row->state == "Ocupado")
+                    {
+                        $btn = '<span class="badge badge-danger">'.$row->state.'</span>';
+                    }
+                    if($row->state == "En Espera")
+                    {
+                       $btn = '<span class="badge bg-blue">'.$row->state.'</span>';
+                    }
                     return $btn;
                 })
                 ->rawColumns(['cradle','state'])

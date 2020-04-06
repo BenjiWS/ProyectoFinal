@@ -180,9 +180,9 @@
             
                                                 <div class="col-md-6">
                                                     <select class="form-control select" name="state" id="state"  required roldata-fouc>
-                                                        <option value="Presencial">En Proceso..</option>
-                                                        <option value="Telefonica">Terminada</option>
-                                                        <option value="Telefonica">Cancelada</option>
+                                                        <option value="En Proceso">En Proceso..</option>
+                                                        <option value="Terminado">Terminado</option>
+                                                        <option value="Cancelado">Cancelado</option>
                                                       </select>
                                                 </div>
                                             </div>

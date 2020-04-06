@@ -55,16 +55,16 @@ Route::middleware(['auth'])->group(function () {
 
     
     //verRoom
-    Route::get('/ViewRoomUser', 'RoomController@indexUser')->name('view_roomUser');
+    Route::get('/ViewRoomUser', 'RoomController@indexUser')->name('view_roomUser')->middleware('can:view_roomUser'); 
     //vweServices
-    Route::get('/ViewServiceUser', 'ServiceController@indexUser')->name('view_service_user');
+    Route::get('/ViewServiceUser', 'ServiceController@indexUser')->name('view_service_user')->middleware('can:view_service_user'); 
 
     Route::resource('ajaxreserva','ReservationController');  
-    Route::get('/ViewReserva', 'ReservationController@index')->name('view_reserva');
-    Route::get('/ViewReserva2', 'ClienteController@index')->name('view_cliente');  
-    Route::get('/ViewCreateReserva', 'ReservationController@rooms')->name('view_create_reserva');  
-    Route::get('/ActualizarCliente/{id}','ClienteController@edit')->name('view_update_cliente'); 
-    Route::post('/ActualizarCLiente','ClienteController@actualizar')->name('update_cliente');
+    Route::get('/ViewReserva', 'ReservationController@index')->name('view_reserva')->middleware('can:view_reserva'); 
+    Route::get('/ViewReserva2', 'ClienteController@index')->name('view_cliente')->middleware('can:view_cliente'); 
+    Route::get('/ViewCreateReserva', 'ReservationController@rooms')->name('view_create_reserva')->middleware('can:view_create_reserva');  
+    Route::get('/ActualizarCliente/{id}','ClienteController@edit')->name('view_update_cliente')->middleware('can:view_update_cliente');  
+    Route::post('/ActualizarCLiente','ClienteController@actualizar')->name('update_cliente')->middleware('can:update_cliente'); 
     Route::resource('ajaxcliente','ClienteController');
     
 

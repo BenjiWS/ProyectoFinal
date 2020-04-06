@@ -82,5 +82,46 @@ class PermissionRolSeeder extends Seeder
        $permiso_rol->permission_id=14;
        $permiso_rol->role_id=1;
        $permiso_rol->save();
+
+
+
+
+
+
+       $permiso_rol=new permission_role;
+       $permiso_rol->permission_id=15;
+       $permiso_rol->role_id=2;
+       $permiso_rol->save();
+
+       $permiso_rol=new permission_role;
+       $permiso_rol->permission_id=16;
+       $permiso_rol->role_id=2;
+       $permiso_rol->save();
+
+       $permiso_rol=new permission_role;
+       $permiso_rol->permission_id=17;
+       $permiso_rol->role_id=2;
+       $permiso_rol->save();
+
+
+       $permiso_rol=new permission_role;
+       $permiso_rol->permission_id=18;
+       $permiso_rol->role_id=2;
+       $permiso_rol->save();
+    
+       $permiso_rol=new permission_role;
+       $permiso_rol->permission_id=19;
+       $permiso_rol->role_id=2;
+       $permiso_rol->save();
+
+       $permiso_rol=new permission_role;
+       $permiso_rol->permission_id=20;
+       $permiso_rol->role_id=2;
+       $permiso_rol->save();
+
+       $permiso_rol=new permission_role;
+       $permiso_rol->permission_id=21;
+       $permiso_rol->role_id=2;
+       $permiso_rol->save();
     }
 }

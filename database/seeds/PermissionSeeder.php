@@ -97,5 +97,51 @@ class PermissionSeeder extends Seeder
         $permiso->description = 'Ver permisos creados';
         $permiso->save();
 
+        //USER
+
+        $permiso=new Permission();
+        $permiso->name = "Ver Habitaciones";
+        $permiso->slug='view_roomUser';
+        $permiso->description = 'Ver room vista user';
+        $permiso->save();
+
+        $permiso=new Permission();
+        $permiso->name = "Ver Vista Servicio Usuario";
+        $permiso->slug='view_service_user';
+        $permiso->description = 'viste perspectiva usuario';
+        $permiso->save();
+
+
+        $permiso=new Permission();
+        $permiso->name = "ista ReservaV";
+        $permiso->slug='view_reserva';
+        $permiso->description = 'Ver vista reserva';
+        $permiso->save();
+
+        $permiso=new Permission();
+        $permiso->name = "Vista Cliente";
+        $permiso->slug='view_cliente';
+        $permiso->description = 'Ver Vista Cliente';
+        $permiso->save();
+
+        $permiso=new Permission();
+        $permiso->name = "Ver Vista Crear Reserva";
+        $permiso->slug='view_create_reserva';
+        $permiso->description = 'Ver vista create';
+        $permiso->save();
+
+        $permiso=new Permission();
+        $permiso->name = "Ver Vista Update CLiente";
+        $permiso->slug='view_update_cliente';
+        $permiso->description = 'Vista para actualziar cliente';
+        $permiso->save();
+
+        $permiso=new Permission();
+        $permiso->name = "Controller Update Cliente";
+        $permiso->slug='update_cliente';
+        $permiso->description = 'Controlador para actualizar cliente';
+        $permiso->save();
+
+
     }
 }

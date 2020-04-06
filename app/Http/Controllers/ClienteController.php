@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Cliente;
 use App\Reservation;
+use App\Room;
 use GuzzleHttp\Client;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
 
 class ClienteController extends Controller
@@ -61,9 +63,8 @@ class ClienteController extends Controller
         $newCliente->password = $request->password;
         $newCliente->save();        
         $newReserva = new Reservation();
-        $idCliente= Cliente::all();
-        $ultimo =$idCliente->last();
-        $newReserva->idCliente= 1;
+        $cliente = DB::table('clientes')->where('ci', '=',$request->ci)->first();
+        $newReserva->idCliente= $cliente->id;
         $newReserva->idRoom=$request->room;
         $startdate = date("y-m-d", strtotime($request->startDate));
         $newReserva->startDate= $startdate;
@@ -76,6 +77,9 @@ class ClienteController extends Controller
         $newReserva->password = $request->password;
         $newReserva->stateUsername=true;
         $newReserva->save();
+        $room = Room::find($request->room);
+        $room->state="Ocupado";
+        $room->save();
         return response()->json(['success'=>'Cliente saved successfully.']);
     }
 
@@ -98,7 +102,6 @@ class ClienteController extends Controller
      */
     public function edit($id)
     {
-        echo("aqui");
         $clientes = Cliente::findOrFail($id);
         return view('cliente.actualizar',compact("clientes"));
     }

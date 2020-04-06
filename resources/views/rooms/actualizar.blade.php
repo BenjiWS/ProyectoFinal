@@ -21,7 +21,6 @@
                     <select class="form-control select" id="state" name="state" roldata-fouc required>
                         <option value="{{$rooms -> state}}">{{$rooms -> state}}</option>
                         <option value="Disponible">Disponible</option>
-                        <option value="No Disponible">Mo Disponible</option>
                         <option value="En Espera">En Espera</option>
                         <option value="Ocupado">Ocupado</option>
                       </select>
