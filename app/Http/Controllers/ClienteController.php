@@ -9,7 +9,7 @@ use GuzzleHttp\Client;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\DataTables;
-
+use Illuminate\Support\Facades\Hash;
 class ClienteController extends Controller
 {
     /**
@@ -72,9 +72,9 @@ class ClienteController extends Controller
         $newReserva->endDate= $enddate;
         $newReserva->type=$request->type;
         $newReserva->state=$request->state;
-        $newReserva->penalty=$request->penalty;
+        $newReserva->penalty=0;
         $newReserva->username = $request->username;
-        $newReserva->password = $request->password;
+        $newReserva->password = Hash::make($request->password);
         $newReserva->stateUsername=true;
         $newReserva->save();
         $room = Room::find($request->room);

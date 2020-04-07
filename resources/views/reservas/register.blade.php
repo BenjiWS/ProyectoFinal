@@ -144,6 +144,7 @@
                                                 <div class="col-md-6">
                                                     <select class="form-control select" name="room" id="room" roldata-fouc>
                                                          @foreach ($rooms as $room)
+                                                         @if()
                                                         <option value="{{$room-> id}}">{{$room-> name}}</option>
                                                         @endforeach
                                                       </select>
@@ -180,19 +181,12 @@
             
                                                 <div class="col-md-6">
                                                     <select class="form-control select" name="state" id="state"  required roldata-fouc>
-                                                        <option value="En Proceso">En Proceso..</option>
-                                                        <option value="Terminado">Terminado</option>
-                                                        <option value="Cancelado">Cancelado</option>
+                                                        <option value="En proceso">En proceso..</option>
+                                                        <option value="Activa">Activa</option>
+                                                        <option value="Cancelada">Cancelada</option>
                                                       </select>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Penalty:</label>
-                                        <div class="col-md-6">
-                                            <input id="penalty" name="penalty" type="text" placeholder="Penalty"
-                                                class="form-control" required>
                                         </div>
                                     </div>
                                 </fieldset>
@@ -284,21 +278,15 @@
             
                                                 <div class="col-md-6">
                                                     <select class="form-control select" name="state1" id="state1"  required roldata-fouc>
-                                                        <option value="Presencial">En Proceso..</option>
-                                                        <option value="Telefonica">Terminada</option>
-                                                        <option value="Telefonica">Cancelada</option>
+                                                        <option value="En proceso">En proceso..</option>
+                                                        <option value="Activa">Activa</option>
+                                                        <option value="Cancelada">Cancelada</option>
                                                       </select>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="form-group row">
-                                        <label class="col-lg-3 col-form-label">Penalty:</label>
-                                        <div class="col-md-6">
-                                            <input id="penalty1" name="penalty1" type="text" placeholder="Penalty"
-                                                class="form-control" required>
-                                        </div>
-                                    </div>
+
                                 </fieldset>
                             </div>
                         </div>

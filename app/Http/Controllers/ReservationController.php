@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables;
 use App\Reservation;
 use App\Room;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\DB;
 
 class ReservationController extends Controller
@@ -53,8 +54,8 @@ class ReservationController extends Controller
                     return $btn;
                 })
                 ->addColumn('actions', function ($row) {
-                    $btn = '<a href="'.route('view_update_room',["id"=>$row->id]).'"   data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm editRoom">Edit</a>';
-                     return $btn;
+                    $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Delete" class="btn btn-danger btn-sm stateReserva">Cancel</a>';
+                    return $btn;
                 })
                 ->rawColumns(['idCliente','idRoom','stateUsername','state', 'actions'])
                 ->make(true);
@@ -97,7 +98,8 @@ class ReservationController extends Controller
     public function store(Request $request)
     {
         $newReserva = new Reservation();
-        $newReserva->idCliente= 1;
+        $newReserva->idCliente= $request->ci1;
+        $cliente = DB::table('clientes')->where('id', '=',$request->ci1)->first();
         $newReserva->idRoom=$request->room1;
         $startdate = date("y-m-d", strtotime($request->startDate1));
         $newReserva->startDate= $startdate;
@@ -105,9 +107,9 @@ class ReservationController extends Controller
         $newReserva->endDate= $enddate;
         $newReserva->type=$request->type1;
         $newReserva->state=$request->state1;
-        $newReserva->penalty=$request->penalty1;
-        $newReserva->username = 12345;
-        $newReserva->password = 1234;
+        $newReserva->penalty=0;
+        $newReserva->username = $cliente->username;
+        $newReserva->password = Hash::make($cliente->password);
         $newReserva->stateUsername=true;
         $newReserva->save();
         $room = Room::find($request->room1);
@@ -135,7 +137,9 @@ class ReservationController extends Controller
      */
     public function edit($id)
     {
-        //
+        $rooms = DB::table('rooms')->select('id', 'name')->get();
+        $reservas= Reservation::findOrFail($id);
+        return view('reservas.actualizar',compact("reservas",'rooms'));
     }
 
     /**
@@ -158,6 +162,13 @@ class ReservationController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $reservas = Reservation::findOrFail($id);
+        if($reservas->state == "En proceso")
+        {
+            $reservas->state= "Cancelada";
+            $reservas->penalty=200;
+            $reservas->save();
+        }
+        return response()->json(['success'=>'Product deleted successfully.']);
     }
 }

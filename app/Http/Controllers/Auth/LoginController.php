@@ -27,7 +27,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = RouteServiceProvider::HOME;
+    protected $redirectTo = '/home';
 
     /**
      * Create a new controller instance.
@@ -41,7 +41,7 @@ class LoginController extends Controller
     
     public function login(Request $request)
     {   
-        $input = $request->all();
+         $input = $request->all();
   
         $this->validate($request, [
             'username' => 'required',
@@ -54,7 +54,7 @@ class LoginController extends Controller
             return redirect()->route('home');
         }else{
             return redirect()->route('login')
-                ->with('error','User-Address And Password Are Wrong.');
-        }    
+                ->with('error','Email-Address And Password Are Wrong.');
+        }  
     }
 }

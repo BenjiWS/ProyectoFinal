@@ -26,7 +26,7 @@ class ReservasSeeder extends Seeder
         ]);
 
         DB::table('reservations')->insert([
-            'idRoom' => '1',
+            'idRoom' => '2',
             'idCliente' => '2',
             'startDate' => $startdate,
             'endDate' => $startdate,

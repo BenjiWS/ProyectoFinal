@@ -13,11 +13,19 @@
                                 <input id="price" name="price" type="text" class="form-control validate number" placeholder="Price *" value="" required/>
                             </div>
                             <div class="form-group">
-                                <input id="type" name="type" type="text" class="form-control validate" placeholder="Type *" value="" required/>
-                            </div>
+                                <select class="form-control select" id="state" name="type" roldata-fouc required>
+                                         <option value="Big">Big</option>
+                                         <option value="Medium">Medium</option>
+                                         <option value="Small">Small</option>
+                                 </select>
+                           </div>
                             <div class="form-group">
-                                <input id="state" name="state" type="text" class="form-control" placeholder="State *" value="" required/>
-                            </div>
+                                <select class="form-control select" id="state" name="state" roldata-fouc required> 
+                                    <option value="Disponible">Disponible</option>
+                                        <option value="Ocupado">Ocupado</option>
+                                            <option value="En Espera">En Espera</option>
+                                 </select>
+                           </div>
 
 
                         </div>
@@ -32,7 +40,20 @@
                                 <input id="numberTV" name="numberTV" type="text"  class="form-control" placeholder="Number TV *" value="" required/>
                             </div>
                             <div class="form-group">
-                                <input id="cradle" name="cradle" type="text" class="form-control" placeholder="Cradle *" value="" required/>
+                                <label class="d-block font-weight-semibold">Cradle</label>
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input-styled" name="cradle"   value="Activado"  data-fouc>
+                                         Activado
+                                    </label>
+                                </div>
+            
+                                <div class="form-check form-check-inline">
+                                    <label class="form-check-label">
+                                        <input type="radio" class="form-check-input-styled" name="cradle" value="Desactivado" data-fouc>
+                                         Desactivado
+                                    </label>
+                                </div>
                             </div>
                             <button type="submit" class="btnRegister">Register</button>
                         </div>

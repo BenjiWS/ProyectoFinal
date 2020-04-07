@@ -131,6 +131,12 @@ class PermissionSeeder extends Seeder
         $permiso->save();
 
         $permiso=new Permission();
+        $permiso->name = "Ver Vista Actualizar Reserva";
+        $permiso->slug='view_update_reserva';
+        $permiso->description = 'Ver vista update';
+        $permiso->save();
+
+        $permiso=new Permission();
         $permiso->name = "Ver Vista Update CLiente";
         $permiso->slug='view_update_cliente';
         $permiso->description = 'Vista para actualziar cliente';

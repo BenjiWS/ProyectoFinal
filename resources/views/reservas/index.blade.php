@@ -32,6 +32,36 @@
         </tbody>
     </table>
 </div>
+<div class="card">
+    <div class="card-header header-elements-inline">
+        <h5 class="card-title">Table Cliente</h5>
+        <div class="header-elements">
+            <div class="list-icons">
+                <a class="list-icons-item" data-action="collapse"></a>
+                <a class="list-icons-item" data-action="reload"></a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body"></strong>
+    </div>
+    <table class="table datatable-basic data-table-2" id="tabla-rol">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Lastname</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Credit Card</th>
+                <th>CVV</th>
+                <th>Date</th>
+                <th width="100px">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
 <script type="text/javascript">
     $(document).ready(function () {
         $.ajaxSetup({
@@ -87,47 +117,7 @@
                 },
             ]
         });
-    });
-
-</script>
-<div class="card">
-    <div class="card-header header-elements-inline">
-        <h5 class="card-title">Table Cliente</h5>
-        <div class="header-elements">
-            <div class="list-icons">
-                <a class="list-icons-item" data-action="collapse"></a>
-                <a class="list-icons-item" data-action="reload"></a>
-            </div>
-        </div>
-    </div>
-    <div class="card-body"></strong>
-    </div>
-    <table class="table datatable-basic data-table-2" id="tabla-rol">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Lastname</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Credit Card</th>
-                <th>CVV</th>
-                <th>Date</th>
-                <th width="100px">Action</th>
-            </tr>
-        </thead>
-        <tbody>
-        </tbody>
-    </table>
-</div>
-<script type="text/javascript">
-    $(document).ready(function () {
-        $.ajaxSetup({
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            }
-        });
-        var table = $('.data-table-2').DataTable({
+        var table1 = $('.data-table-2').DataTable({
             processing: true,
             serverSide: true,
             ajax: "{{ route('view_cliente') }}",
@@ -170,6 +160,21 @@
                     searchable: false
                 },
             ]
+        });
+        $('body').on('click', '.stateReserva', function () {
+            var reserva = $(this).data("id");
+            alert(reserva);
+            $.ajax({
+                type: "DELETE",
+                url: "{{ route('ajaxreserva.store') }}" + '/' + reserva,
+                success: function (data) {
+                    console.log("llego");
+                    table.draw();
+                },
+                error: function (data) {
+                    console.log('Error:', data);
+                }
+            });
         });
     });
 

@@ -14,8 +14,13 @@
                     <input id="price" name="price" type="text" class="form-control validate" placeholder="Price *" value="{{$rooms->price}}"  required/>
                 </div>
                 <div class="form-group">
-                    <input id="type" name="type" type="text" class="form-control validate" placeholder="Type *" value="{{$rooms -> type}}"  required/>
-                </div>
+                    <select class="form-control select" id="state" name="type" roldata-fouc required>
+                        <option value="{{$rooms->type}}">{{$rooms->type}}</option>
+                        <option value="Big">Big</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Small">Small</option>
+                     </select>
+               </div>
                 <div class="form-group">
                     <label>State</label>
                     <select class="form-control select" id="state" name="state" roldata-fouc required>
