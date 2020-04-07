@@ -21,8 +21,7 @@
                     <a href="#">
                         <img src="{{asset("assets/limitless/global_assets/images/placeholders/placeholder.jpg")}}" class="img-fluid rounded-circle shadow-2 mb-3" width="80" height="80" alt="">
                     </a>
-                    <h6 class="mb-0 text-white text-shadow-dark">{{Auth::user()->name }} {{Auth::user()->lastname}}</h6>
-                    <span class="font-size-sm text-white text-shadow-dark">{{Auth::user()->email}}</span>
+                   
                 </div>
                                             
                 <div class="sidebar-user-material-footer">
@@ -64,63 +63,16 @@
                     <!-- Main -->
                     <li class="nav-item-header pt-0 mt-0"><div class="text-uppercase font-size-xs line-height-xs">Main</div> <i class="icon-menu" title="Main"></i></li>
                     <li class="nav-item">
-                        <a href="{{route('home')}}" class="nav-link">
+                        <a href="{{route('reservation.dashboard')}}" class="nav-link">
                             <i class="icon-home4"></i>
                             <span>
                                 Home
                             </span>
                         </a>
                     </li>
-                    <li class="nav-item nav-item-submenu">
-                        @can('view_user')
-                        <a href="#" class="nav-link"><i class="icon-copy"></i> <span>User</span></a>
-                        <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                            <li class="nav-item"> <a href="{{route('view_user')}}" class="nav-link">Table User</a></li>
-                            <li class="nav-item"> <a href="{{route ('view_create_user')}}" class="nav-link">Register User</a></li>
-                        </ul>
-                        @endcan
-                    </li>
-                    @can('view_role')
-                    <li class="nav-item">
-                        <a href="{{route('view_role')}}"class="nav-link"><i class="icon-color-sampler"></i> <span>Roles</span></a>
-                    </li>
-                    @endcan
-                    @can('view_room')
-                    <li class="nav-item nav-item-submenu">
-                        <a href="#" class="nav-link"><i class="icon-stack"></i> <span>Room</span></a>
-
-                        <ul class="nav nav-group-sub" data-submenu-title="Starter kit">
-                            <li class="nav-item"><a href="{{route('view_room')}}"  class="nav-link">Table Room</a></li>
-                            <li class="nav-item"><a href="{{route('view_create_room')}}"  class="nav-link">Register Room</a></li>
-                        </ul>
-                    </li>
-                    @endcan
-                    @can('view_service')
-                    <li class="nav-item"><a href="{{route('view_service')}}" class="nav-link"><i class="icon-width"></i><span>Services</span></a></li>
-                    @endcan
-                    @can('view_permission')
-                    <li class="nav-item"><a href="{{route('view_permission')}}" class="nav-link"><i class="icon-tree5"></i><span>Permissions</span></a></li>
-                    @endcan
-                    @can('view_service_user')
                     <li class="nav-item ">
-                        <a href="{{route('view_service_user')}}" class="nav-link"><i class="icon-width"></i> <span>Services</span></a>
+                        <a href="{{route('view_service_cliente')}}" class="nav-link"><i class="icon-width"></i> <span>Services</span></a>
                     </li>
-                    @endcan
-                    @can('view_roomUser')
-                    <li class="nav-item">
-                        <a href="{{route('view_roomUser')}}" class="nav-link"><i class="icon-stack"></i> <span> Table Room</span></a>
-                    </li>              
-                    @endcan
-                    @can('view_create_reserva')
-                    <li class="nav-item nav-item-submenu">
-                        <a href="" class="nav-link"><i class="icon-copy"></i> <span>Reservation</span></a>
-
-                        <ul class="nav nav-group-sub" data-submenu-title="Layouts">
-                            <li class="nav-item"> <a href="{{route('view_reserva')}}" class="nav-link">Table Reservation</a></li>
-                            <li class="nav-item"> <a href="{{route ('view_create_reserva')}}" class="nav-link">Register Reservation</a></li>
-                        </ul>
-                    </li>                     
-                    @endcan   
                 </ul>
             </div>
         </div>

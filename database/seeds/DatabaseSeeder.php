@@ -19,5 +19,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionRolSeeder::class);
         $this->call(ClienteSeeder::class);
         $this->call(ReservasSeeder::class);
+        $this->call(ServiceClienteSeeder::class);
     }
 }

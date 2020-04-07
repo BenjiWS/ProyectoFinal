@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Service;
 use DataTables;
-
+use Illuminate\Support\Facades\DB;
 class ServiceController extends Controller
 {
     /**
@@ -35,7 +35,7 @@ class ServiceController extends Controller
                 })
                 ->rawColumns(['state', 'action'])
                 ->make(true);
-        }
+        }     
         return view('servicios.index');
     }
     public function indexUser(Request $request)
@@ -55,6 +55,22 @@ class ServiceController extends Controller
                 ->make(true);
         }
         return view('servicios.indexUser');
+    }
+    public function indexCliente(Request $request)
+    {
+        if ($request->ajax()) {
+            $data = Service::all();
+            return DataTables::of($data)
+                ->addColumn('action', function ($row) {
+                   $btn = '<a href="javascript:void(0)" data-toggle="tooltip"  data-id="'.$row->id.'" data-original-title="Edit" class="edit btn btn-primary btn-sm solicitarService">Solicitar</a>';
+
+                   return $btn;
+                })
+               ->rawColumns(['action'])
+                ->make(true);
+        }
+        $clientes = DB::table('service_cliente')->select('idService', 'idCliente','Date')->get();
+        return view('ViewClienteSistema.Servicios.index',compact('clientes'));
     }
 
     /**

@@ -13,13 +13,14 @@ class CreateServiceClienteTable extends Migration
      */
     public function up()
     {
-        Schema::create('serviceCliente', function (Blueprint $table) {
+        Schema::create('service_cliente', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('idService')->unsigned();
             $table->bigInteger('idCliente')->unsigned();
-            $table->timestamps();
+            $table->dateTime('Date');
             $table->foreign('idService')->references('id')->on('services');
-            $table->foreign('idCliente')->references('id')->on('clientes');
+            $table->foreign('idCliente')->references('id')->on('clientes'); 
+            $table->timestamps();
         });
     }
 
@@ -30,6 +31,6 @@ class CreateServiceClienteTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('serviceCliente');
+        Schema::dropIfExists('service_cliente');
     }
 }

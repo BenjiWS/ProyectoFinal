@@ -34,7 +34,7 @@
             <li class="nav-item dropdown dropdown-user">
                 <a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
                     <img src="{{asset("assets/limitless/global_assets/images/placeholders/placeholder.jpg")}}" class="rounded-circle" alt="">
-                    <span>{{ Auth::user()->name }} {{Auth::user()->lastname}}</span>
+                    
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right">

@@ -18,6 +18,6 @@ class ReservationController extends Controller
      */
     public function index()
     {
-        return view('ViewClienteSistema.home');
+        return view('ViewClienteSistema.index');
     }
 }

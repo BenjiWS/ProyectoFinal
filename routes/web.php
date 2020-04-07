@@ -25,14 +25,16 @@ Route::prefix('cliente')->group(function() {
     Route::post('/login', 'Auth\ClienteLoginController@login')->name('cliente.login.submit');
     Route::get('logout/', 'Auth\ClienteLoginController@logout')->name('cliente.logout');
     Route::get('/', 'Auth\ClienteController@index')->name('cliente.dashboard');
-   }) ;
- Route::prefix('reservation')->group(function() {
+   
+}) ;
+ Route::prefix('reservation')->middleware('auth:reservation')->group(function() {
     Route::get('/login','Auth\ReservationLoginController@showLoginForm')->name('reservation.login');
     Route::post('/login', 'Auth\ReservationLoginController@login')->name('reservation.login.submit');
     Route::get('logout/', 'Auth\ReservationLoginController@logout')->name('reservation.logout');
     Route::get('/', 'Auth\ReservationController@index')->name('reservation.dashboard');
-   }) ;
-Route::prefix('administracion')->group(function() {
+    Route::get('/ViewServiceCliente', 'ServiceController@indexCliente')->name('view_service_cliente');
+    Route::resource('ajaxservicecliente', 'ServiceClienteController');
+}) ;
 Route::middleware(['auth'])->group(function () {
     //Usuarios
     Route::resource('ajaxuser','UserController'); 
@@ -81,4 +83,3 @@ Route::middleware(['auth'])->group(function () {
     
 
 });
-}) ;

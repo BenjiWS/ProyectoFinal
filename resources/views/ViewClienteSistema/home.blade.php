@@ -80,6 +80,9 @@
 </head>
 </head>
 <body>
+
+
+
 	<!-- Main navbar -->
 	@include('ViewClienteSistema.vistas.navbar')
 	<!-- /main navbar -->
@@ -100,10 +103,9 @@
 
 		<!-- Main content -->
 		<div class="content-wrapper">
-
 			<!-- Content area -->
 			<div class="content">
-						 @yield('seccion')
+				@yield('seccion')
 			</div>
 		</div>
 		<!-- /main content -->

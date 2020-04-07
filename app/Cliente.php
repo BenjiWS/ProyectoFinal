@@ -9,8 +9,7 @@ class Cliente extends Authenticatable
     protected $guard = 'cliente'; 
 
     protected $fillable = [
-        'ci','name','lastname','email','phone','address','number_Card_Credit','number_CVV','date_Card','state'
-        ,'username','password'
+        'ci','name','lastname','email','phone','address','number_Card_Credit','number_CVV','date_Card','username','password'
     ];
 
     protected $hidden = [
