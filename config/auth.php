@@ -46,6 +46,22 @@ return [
             'provider' => 'users',
             'hash' => false,
         ],
+        'cliente' => [
+            'driver' => 'session',
+            'provider' => 'clientes',
+        ],
+        'cliente-api' => [
+            'driver' => 'token',
+            'provider' => 'clientes',
+        ],
+        'reservation' => [
+            'driver' => 'session',
+            'provider' => 'reservations',
+        ],
+        'reservation-api' => [
+            'driver' => 'token',
+            'provider' => 'reservations',
+        ],
     ],
 
     /*
@@ -69,6 +85,14 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'clientes' => [
+            'driver' => 'eloquent',
+            'model' => App\Cliente::class,
+        ],
+        'reservations' => [
+            'driver' => 'eloquent',
+            'model' => App\Reservation::class,
         ],
 
         // 'users' => [

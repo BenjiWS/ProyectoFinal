@@ -20,7 +20,19 @@ Route::get('/', function () {
 //Route::get('/user', 'UserController@index')->name('userview');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
-
+Route::prefix('cliente')->group(function() {
+    Route::get('/login','Auth\ClienteLoginController@showLoginForm')->name('cliente.login');
+    Route::post('/login', 'Auth\ClienteLoginController@login')->name('cliente.login.submit');
+    Route::get('logout/', 'Auth\ClienteLoginController@logout')->name('cliente.logout');
+    Route::get('/', 'Auth\ClienteController@index')->name('cliente.dashboard');
+   }) ;
+ Route::prefix('reservation')->group(function() {
+    Route::get('/login','Auth\ReservationLoginController@showLoginForm')->name('reservation.login');
+    Route::post('/login', 'Auth\ReservationLoginController@login')->name('reservation.login.submit');
+    Route::get('logout/', 'Auth\ReservationLoginController@logout')->name('reservation.logout');
+    Route::get('/', 'Auth\ReservationController@index')->name('reservation.dashboard');
+   }) ;
+Route::prefix('administracion')->group(function() {
 Route::middleware(['auth'])->group(function () {
     //Usuarios
     Route::resource('ajaxuser','UserController'); 
@@ -69,5 +81,4 @@ Route::middleware(['auth'])->group(function () {
     
 
 });
-
-
+}) ;

@@ -16,12 +16,31 @@ class RedirectIfAuthenticated
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
+ /*  public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
             return redirect(RouteServiceProvider::HOME);
         }
 
         return $next($request);
+    }*/
+    public function handle($request, Closure $next, $guard = null)
+    {
+      switch ($guard) {
+        case 'cliente':
+          if (Auth::guard($guard)->check()) {
+            return redirect()->route('cliente.dashboard');
+          }
+        case 'reservation':
+            if (Auth::guard($guard)->check()) {
+              return redirect()->route('reservation.dashboard');
+            }
+        default:
+          if (Auth::guard($guard)->check()) {
+              return redirect('/');
+          }
+          break;
+      }
+      return $next($request);
     }
 }

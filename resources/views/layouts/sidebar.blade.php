@@ -106,12 +106,17 @@ $rol = $array[0]->name;
                     @can('view_permission')
                     <li class="nav-item"><a href="{{route('view_permission')}}" class="nav-link"><i class="icon-tree5"></i><span>Permissions</span></a></li>
                     @endcan
+                    @can('view_service_user')
                     <li class="nav-item ">
                         <a href="{{route('view_service_user')}}" class="nav-link"><i class="icon-width"></i> <span>Services</span></a>
                     </li>
+                    @endcan
+                    @can('view_roomUser')
                     <li class="nav-item">
                         <a href="{{route('view_roomUser')}}" class="nav-link"><i class="icon-stack"></i> <span> Table Room</span></a>
                     </li>              
+                    @endcan
+                    @can('view_create_reserva')
                     <li class="nav-item nav-item-submenu">
                         <a href="" class="nav-link"><i class="icon-copy"></i> <span>Reservation</span></a>
 
@@ -119,7 +124,8 @@ $rol = $array[0]->name;
                             <li class="nav-item"> <a href="{{route('view_reserva')}}" class="nav-link">Table Reservation</a></li>
                             <li class="nav-item"> <a href="{{route ('view_create_reserva')}}" class="nav-link">Register Reservation</a></li>
                         </ul>
-                    </li>                        
+                    </li>                     
+                    @endcan   
                 </ul>
             </div>
         </div>

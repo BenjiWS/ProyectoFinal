@@ -22,7 +22,7 @@ class ClienteSeeder extends Seeder
             'date_Card' => '2024-10',
             'number_CVV' => '1234',
             'username' => 'Chriss21',
-            'password' => 'Chriss25',
+            'password' => Hash::make('Chriss25'),
         ]);
         DB::table('clientes')->insert([
             'ci' => '1233456',
@@ -35,7 +35,7 @@ class ClienteSeeder extends Seeder
             'date_Card' => '2020-12',
             'number_CVV' => '1234',
             'username' => 'darihen123',
-            'password' => 'darihen123',
+            'password' => Hash::make('darihen123'),
         ]);
     }
 }
