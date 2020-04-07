@@ -1,4 +1,8 @@
-  <!-- Main sidebar -->
+ <?php
+   $id =Auth::user()->idCliente;
+    $usuario = DB::table('clientes')->where('id', '=', $id)->first();
+ ?>
+ <!-- Main sidebar -->
   <div class="sidebar sidebar-light sidebar-main sidebar-expand-md align-self-start">
     <!-- Sidebar mobile toggler -->
     <div class="sidebar-mobile-toggler text-center">
@@ -21,7 +25,8 @@
                     <a href="#">
                         <img src="{{asset("assets/limitless/global_assets/images/placeholders/placeholder.jpg")}}" class="img-fluid rounded-circle shadow-2 mb-3" width="80" height="80" alt="">
                     </a>
-                   
+                    <h6 class="mb-0 text-white text-shadow-dark">{{$usuario->name }} {{$usuario->lastname}}</h6>
+                    <span class="font-size-sm text-white text-shadow-dark">{{$usuario->email}}</span>
                 </div>
                                             
                 <div class="sidebar-user-material-footer">

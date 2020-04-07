@@ -1,3 +1,7 @@
+<?php
+    $id =Auth::user()->idCliente;
+    $usuario = DB::table('clientes')->where('id', '=', $id)->first();	
+?>
 <!-- Main navbar -->
 <div class="navbar navbar-expand-md navbar-dark bg-indigo">
     <div class="navbar-brand wmin-200">
@@ -34,7 +38,7 @@
             <li class="nav-item dropdown dropdown-user">
                 <a href="#" class="navbar-nav-link dropdown-toggle" data-toggle="dropdown">
                     <img src="{{asset("assets/limitless/global_assets/images/placeholders/placeholder.jpg")}}" class="rounded-circle" alt="">
-                    
+                    <span>{{ $usuario->name }} {{$usuario->lastname}}</span>
                 </a>
 
                 <div class="dropdown-menu dropdown-menu-right">

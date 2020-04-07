@@ -45,8 +45,8 @@
                 @foreach($clientes as $cliente)
                     @if($cliente -> idCliente == $id)
                         <tr>
-                            <td>{{ $cliente-> idService }} </td>
-                            <td>{{ $cliente -> Date }} </td>
+                            <td>{{ $cliente-> name }} </td>
+                            <td>{{ $cliente -> date }} </td>
                         </tr>
                     @endif
                 @endforeach

@@ -69,7 +69,7 @@ class ServiceController extends Controller
                ->rawColumns(['action'])
                 ->make(true);
         }
-        $clientes = DB::table('service_cliente')->select('idService', 'idCliente','Date')->get();
+        $clientes = Service::join('service_cliente','services.id','=','service_cliente.idService')->select('idCliente','name','date')->get();
         return view('ViewClienteSistema.Servicios.index',compact('clientes'));
     }
 
